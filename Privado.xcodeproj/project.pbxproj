@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBCF2768FCF100409124 /* AppDelegate.swift */; };
+		3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBD12768FCF100409124 /* SceneDelegate.swift */; };
+		3B8AEBD42768FCF100409124 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBD32768FCF100409124 /* ViewController.swift */; };
+		3B8AEBD72768FCF100409124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8AEBD52768FCF100409124 /* Main.storyboard */; };
+		3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBD82768FCF100409124 /* Privado.xcdatamodeld */; };
+		3B8AEBDC2768FCF200409124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B8AEBDB2768FCF200409124 /* Assets.xcassets */; };
+		3B8AEBDF2768FCF200409124 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8AEBDD2768FCF200409124 /* LaunchScreen.storyboard */; };
+		3B8AEBEA2768FCF200409124 /* PrivadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBE92768FCF200409124 /* PrivadoTests.swift */; };
+		3B8AEBF42768FCF200409124 /* PrivadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */; };
+		3B8AEBF62768FCF200409124 /* PrivadoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B8AEBE62768FCF200409124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B8AEBC42768FCF100409124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B8AEBCB2768FCF100409124;
+			remoteInfo = Privado;
+		};
+		3B8AEBF02768FCF200409124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B8AEBC42768FCF100409124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B8AEBCB2768FCF100409124;
+			remoteInfo = Privado;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B8AEBCC2768FCF100409124 /* Privado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Privado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8AEBCF2768FCF100409124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B8AEBD12768FCF100409124 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3B8AEBD32768FCF100409124 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B8AEBD62768FCF100409124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B8AEBD92768FCF100409124 /* Privado.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Privado.xcdatamodel; sourceTree = "<group>"; };
+		3B8AEBDB2768FCF200409124 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B8AEBDE2768FCF200409124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B8AEBE02768FCF200409124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B8AEBE52768FCF200409124 /* PrivadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8AEBE92768FCF200409124 /* PrivadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoTests.swift; sourceTree = "<group>"; };
+		3B8AEBEF2768FCF200409124 /* PrivadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITests.swift; sourceTree = "<group>"; };
+		3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B8AEBC92768FCF100409124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBE22768FCF200409124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBEC2768FCF200409124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B8AEBC32768FCF100409124 = {
+			isa = PBXGroup;
+			children = (
+				3B8AEBCE2768FCF100409124 /* Privado */,
+				3B8AEBE82768FCF200409124 /* PrivadoTests */,
+				3B8AEBF22768FCF200409124 /* PrivadoUITests */,
+				3B8AEBCD2768FCF100409124 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B8AEBCD2768FCF100409124 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AEBCC2768FCF100409124 /* Privado.app */,
+				3B8AEBE52768FCF200409124 /* PrivadoTests.xctest */,
+				3B8AEBEF2768FCF200409124 /* PrivadoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B8AEBCE2768FCF100409124 /* Privado */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AEBCF2768FCF100409124 /* AppDelegate.swift */,
+				3B8AEBD12768FCF100409124 /* SceneDelegate.swift */,
+				3B8AEBD32768FCF100409124 /* ViewController.swift */,
+				3B8AEBD52768FCF100409124 /* Main.storyboard */,
+				3B8AEBDB2768FCF200409124 /* Assets.xcassets */,
+				3B8AEBDD2768FCF200409124 /* LaunchScreen.storyboard */,
+				3B8AEBE02768FCF200409124 /* Info.plist */,
+				3B8AEBD82768FCF100409124 /* Privado.xcdatamodeld */,
+			);
+			path = Privado;
+			sourceTree = "<group>";
+		};
+		3B8AEBE82768FCF200409124 /* PrivadoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AEBE92768FCF200409124 /* PrivadoTests.swift */,
+			);
+			path = PrivadoTests;
+			sourceTree = "<group>";
+		};
+		3B8AEBF22768FCF200409124 /* PrivadoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */,
+				3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */,
+			);
+			path = PrivadoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B8AEBCB2768FCF100409124 /* Privado */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B8AEBF92768FCF200409124 /* Build configuration list for PBXNativeTarget "Privado" */;
+			buildPhases = (
+				3B8AEBC82768FCF100409124 /* Sources */,
+				3B8AEBC92768FCF100409124 /* Frameworks */,
+				3B8AEBCA2768FCF100409124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Privado;
+			productName = Privado;
+			productReference = 3B8AEBCC2768FCF100409124 /* Privado.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B8AEBE42768FCF200409124 /* PrivadoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B8AEBFC2768FCF200409124 /* Build configuration list for PBXNativeTarget "PrivadoTests" */;
+			buildPhases = (
+				3B8AEBE12768FCF200409124 /* Sources */,
+				3B8AEBE22768FCF200409124 /* Frameworks */,
+				3B8AEBE32768FCF200409124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B8AEBE72768FCF200409124 /* PBXTargetDependency */,
+			);
+			name = PrivadoTests;
+			productName = PrivadoTests;
+			productReference = 3B8AEBE52768FCF200409124 /* PrivadoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B8AEBEE2768FCF200409124 /* PrivadoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B8AEBFF2768FCF200409124 /* Build configuration list for PBXNativeTarget "PrivadoUITests" */;
+			buildPhases = (
+				3B8AEBEB2768FCF200409124 /* Sources */,
+				3B8AEBEC2768FCF200409124 /* Frameworks */,
+				3B8AEBED2768FCF200409124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B8AEBF12768FCF200409124 /* PBXTargetDependency */,
+			);
+			name = PrivadoUITests;
+			productName = PrivadoUITests;
+			productReference = 3B8AEBEF2768FCF200409124 /* PrivadoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B8AEBC42768FCF100409124 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					3B8AEBCB2768FCF100409124 = {
+						CreatedOnToolsVersion = 13.2;
+					};
+					3B8AEBE42768FCF200409124 = {
+						CreatedOnToolsVersion = 13.2;
+						TestTargetID = 3B8AEBCB2768FCF100409124;
+					};
+					3B8AEBEE2768FCF200409124 = {
+						CreatedOnToolsVersion = 13.2;
+						TestTargetID = 3B8AEBCB2768FCF100409124;
+					};
+				};
+			};
+			buildConfigurationList = 3B8AEBC72768FCF100409124 /* Build configuration list for PBXProject "Privado" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B8AEBC32768FCF100409124;
+			productRefGroup = 3B8AEBCD2768FCF100409124 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B8AEBCB2768FCF100409124 /* Privado */,
+				3B8AEBE42768FCF200409124 /* PrivadoTests */,
+				3B8AEBEE2768FCF200409124 /* PrivadoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B8AEBCA2768FCF100409124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8AEBDF2768FCF200409124 /* LaunchScreen.storyboard in Resources */,
+				3B8AEBDC2768FCF200409124 /* Assets.xcassets in Resources */,
+				3B8AEBD72768FCF100409124 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBE32768FCF200409124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBED2768FCF200409124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B8AEBC82768FCF100409124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8AEBD42768FCF100409124 /* ViewController.swift in Sources */,
+				3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */,
+				3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */,
+				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBE12768FCF200409124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8AEBEA2768FCF200409124 /* PrivadoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8AEBEB2768FCF200409124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8AEBF62768FCF200409124 /* PrivadoUITestsLaunchTests.swift in Sources */,
+				3B8AEBF42768FCF200409124 /* PrivadoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B8AEBE72768FCF200409124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B8AEBCB2768FCF100409124 /* Privado */;
+			targetProxy = 3B8AEBE62768FCF200409124 /* PBXContainerItemProxy */;
+		};
+		3B8AEBF12768FCF200409124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B8AEBCB2768FCF100409124 /* Privado */;
+			targetProxy = 3B8AEBF02768FCF200409124 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B8AEBD52768FCF100409124 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B8AEBD62768FCF100409124 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B8AEBDD2768FCF200409124 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B8AEBDE2768FCF200409124 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B8AEBF72768FCF200409124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B8AEBF82768FCF200409124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B8AEBFA2768FCF200409124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Privado/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.Privado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B8AEBFB2768FCF200409124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Privado/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.Privado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B8AEBFD2768FCF200409124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.PrivadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privado.app/Privado";
+			};
+			name = Debug;
+		};
+		3B8AEBFE2768FCF200409124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.PrivadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privado.app/Privado";
+			};
+			name = Release;
+		};
+		3B8AEC002768FCF200409124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.PrivadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Privado;
+			};
+			name = Debug;
+		};
+		3B8AEC012768FCF200409124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = PWM.PrivadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Privado;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B8AEBC72768FCF100409124 /* Build configuration list for PBXProject "Privado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8AEBF72768FCF200409124 /* Debug */,
+				3B8AEBF82768FCF200409124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B8AEBF92768FCF200409124 /* Build configuration list for PBXNativeTarget "Privado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8AEBFA2768FCF200409124 /* Debug */,
+				3B8AEBFB2768FCF200409124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B8AEBFC2768FCF200409124 /* Build configuration list for PBXNativeTarget "PrivadoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8AEBFD2768FCF200409124 /* Debug */,
+				3B8AEBFE2768FCF200409124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B8AEBFF2768FCF200409124 /* Build configuration list for PBXNativeTarget "PrivadoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8AEC002768FCF200409124 /* Debug */,
+				3B8AEC012768FCF200409124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B8AEBD82768FCF100409124 /* Privado.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B8AEBD92768FCF100409124 /* Privado.xcdatamodel */,
+			);
+			currentVersion = 3B8AEBD92768FCF100409124 /* Privado.xcdatamodel */;
+			path = Privado.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3B8AEBC42768FCF100409124 /* Project object */;
+}
