@@ -17,6 +17,9 @@
 		3B8AEBEA2768FCF200409124 /* PrivadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBE92768FCF200409124 /* PrivadoTests.swift */; };
 		3B8AEBF42768FCF200409124 /* PrivadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */; };
 		3B8AEBF62768FCF200409124 /* PrivadoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */; };
+		3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */; };
+		3BDA139E2770D5EA0068A25F /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* NewsTableViewCell.swift */; };
+		3BDA13A227714E740068A25F /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA13A127714E740068A25F /* LatestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		3B8AEBEF2768FCF200409124 /* PrivadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITests.swift; sourceTree = "<group>"; };
 		3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetch.swift; sourceTree = "<group>"; };
+		3BDA139D2770D5EA0068A25F /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		3BDA13A127714E740068A25F /* LatestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				3B8AEBDD2768FCF200409124 /* LaunchScreen.storyboard */,
 				3B8AEBE02768FCF200409124 /* Info.plist */,
 				3B8AEBD82768FCF100409124 /* Privado.xcdatamodeld */,
+				3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */,
+				3BDA139D2770D5EA0068A25F /* NewsTableViewCell.swift */,
+				3BDA13A127714E740068A25F /* LatestViewController.swift */,
 			);
 			path = Privado;
 			sourceTree = "<group>";
@@ -263,7 +272,10 @@
 			files = (
 				3B8AEBD42768FCF100409124 /* ViewController.swift in Sources */,
 				3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */,
+				3BDA13A227714E740068A25F /* LatestViewController.swift in Sources */,
+				3BDA139E2770D5EA0068A25F /* NewsTableViewCell.swift in Sources */,
 				3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */,
+				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
 				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

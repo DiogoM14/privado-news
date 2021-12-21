@@ -1,9 +1,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    
+class LatestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -17,13 +15,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Populares"
+        title = "Últimas"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
         
-        APIFetch.shared.getTopNews { [weak self] result in
+        APIFetch.shared.getLatestNews { [weak self] result in
            switch result {
            case .success(let articles):
                self?.articles = articles
@@ -83,3 +81,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 150
     }
 }
+
