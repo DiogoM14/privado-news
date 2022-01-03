@@ -1,19 +1,25 @@
 import UIKit
 
 class NewsTableViewCellViewModel {
-    let title: String
-    let subtitle: String
-    let imageURL: URL?
+    let title : String
+    let summary : String
+    let imageURL : URL?
     var imageData: Data? = nil
+    var newsSite: String?
+    var publishedAt: String?
     
     init(
-        title: String,
-        subtitle: String,
-        imageURL: URL?
+        title : String,
+        summary : String,
+        imageURL : URL?,
+        newsSite : String,
+        publishedAt : String
     ){
         self.title = title
-        self.subtitle = subtitle
+        self.summary = summary
         self.imageURL = imageURL
+        self.newsSite = newsSite
+        self.publishedAt = publishedAt
     }
 }
 
@@ -42,12 +48,24 @@ static let identifier = "NewsTableViewCell"
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+//    private let authorLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = .systemFont(ofSize: 17, weight: .thin)
+//        return label
+//    }()
+//    private let publishedAtLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = .systemFont(ofSize: 17, weight: .thin)
+//        return label
+//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(newsTitleLabel)
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(newsImageView)
+//        contentView.addSubview(authorLabel)
+//        contentView.addSubview(publishedAtLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -69,7 +87,6 @@ static let identifier = "NewsTableViewCell"
             width: contentView.frame.size.width - 170,
             height: contentView.frame.size.height/2)
         newsImageView.frame = CGRect(
-            
             x: contentView.frame.size.width-150,
             y: 5,
             width: 140,
@@ -77,15 +94,19 @@ static let identifier = "NewsTableViewCell"
     }
    
     override func prepareForReuse() {
-         super.prepareForReuse()
+        super.prepareForReuse()
         newsTitleLabel.text = nil
         subTitleLabel.text = nil
         newsImageView.image = nil
+//        authorLabel.text = nil
+//        publishedAtLabel.text = nil
     }
     
     func configure(with viewModel : NewsTableViewCellViewModel ){
         newsTitleLabel.text = viewModel.title
-        subTitleLabel.text = viewModel.subtitle
+        subTitleLabel.text = viewModel.summary
+//        authorLabel.text = viewModel.newsSite
+//        publishedAtLabel.text = viewModel.publishedAt
         
         //Image
         if let data = viewModel.imageData {

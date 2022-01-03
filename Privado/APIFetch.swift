@@ -4,15 +4,15 @@ final class APIFetch {
     static let shared = APIFetch()
 
     struct Constants {
-        static let toHeadlinesURL = URL(string: "https://newsapi.org/v2/top-headlines?country=pt&apiKey=1d7225c5d26242dca298f42bbea8e1b8")
+        static let toHeadlinesURL = URL(string: "https://api.spaceflightnewsapi.net/v3/articles")
         
-        static let toLatestURl = URL(string: "https://newsapi.org/v2/everything?q=latest&sortBy=publishedAt&apiKey=1d7225c5d26242dca298f42bbea8e1b8")
-        
+        static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?title_contains="
     }
     
     private init() {}
     
     public func getTopNews(completion: @escaping (Result<[Article], Error>) -> Void) {
+        
         guard let url = Constants.toHeadlinesURL else {
             return
         }
@@ -22,10 +22,10 @@ final class APIFetch {
                 completion(.failure(error))
             }
             else if let data = data {
+                
                 do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    
-                    completion(.success(result.articles))
+                    let result = try JSONDecoder().decode([Article].self, from: data)
+                    completion(.success(result))
                 }
                 catch {
                     completion(.failure(error))
@@ -35,8 +35,13 @@ final class APIFetch {
         task.resume()
     }
     
-    public func getLatestNews(completion: @escaping (Result<[Article], Error>) -> Void) {
-        guard let url = Constants.toLatestURl else {
+    public func search(with query: String, completion: @escaping (Result<[Article], Error>) -> Void) {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        
+        let urlString = Constants.searchUrlString + query
+        guard let url = URL(string: urlString) else {
             return
         }
         
@@ -46,9 +51,10 @@ final class APIFetch {
             }
             else if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
+                    let result = try JSONDecoder().decode([Article].self, from: data)
                     
-                    completion(.success(result.articles))
+                    
+                    completion(.success(result))
                 }
                 catch {
                     completion(.failure(error))
@@ -65,14 +71,10 @@ struct APIResponse: Codable {
 }
 
 struct Article: Codable {
-    let source: Source
     let title: String
-    let description: String?
     let url: String?
-    let urlToImage: String?
+    let imageUrl: String?
+    let newsSite: String?
+    let summary: String?
     let publishedAt: String?
-}
-
-struct Source: Codable {
-    let name: String
 }

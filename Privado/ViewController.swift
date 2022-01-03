@@ -1,9 +1,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -11,13 +9,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return table
     }()
     
+    private let searchVC = UISearchController(searchResultsController: nil)
     private var viewModels = [NewsTableViewCellViewModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Populares"
+        title = "Privado"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -30,8 +29,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                self?.viewModels = articles.compactMap({
                    NewsTableViewCellViewModel(
                     title: $0.title,
-                    subtitle: $0.description ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: $0.urlToImage ?? "http://photos1.blogger.com/blogger/7238/427/1600/nhecos.jpg")
+                    summary: $0.summary ?? "Sem Descrição para mostrar",
+                    imageURL: URL(string: $0.imageUrl ?? ""),
+                    newsSite: $0.newsSite ?? "Sem autor",
+                    publishedAt: $0.publishedAt ?? ""
                    )
                })
                
@@ -42,6 +43,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                print(error)
            }
        }
+        // Do any additional setup after loading the view.
+        
+        createSearchBar()
+    }
+    
+    private func createSearchBar(){
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,8 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.frame =  view.bounds
     }
     
-    //Table
     
+    //Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -67,7 +76,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let article = articles[indexPath.row]
@@ -80,6 +88,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
+    
+    //Search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        
+        APIFetch.shared.search(with: text){ [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NewsTableViewCellViewModel(
+                     title: $0.title,
+                     summary: $0.summary ?? "Sem Descrição para mostrar",
+                     imageURL: URL(string: $0.imageUrl ?? ""),
+                     newsSite: $0.newsSite ?? "",
+                     publishedAt: $0.publishedAt ?? ""
+                    )
+                })
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
 }
