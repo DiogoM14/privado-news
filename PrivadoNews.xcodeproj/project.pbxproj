@@ -1,0 +1,634 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BE18F8B27889B5C00D8298C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8A27889B5C00D8298C /* AppDelegate.swift */; };
+		3BE18F8D27889B5C00D8298C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8C27889B5C00D8298C /* SceneDelegate.swift */; };
+		3BE18F8F27889B5C00D8298C /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8E27889B5C00D8298C /* ArticleListViewController.swift */; };
+		3BE18F9227889B5C00D8298C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE18F9027889B5C00D8298C /* Main.storyboard */; };
+		3BE18F9527889B5C00D8298C /* PrivadoNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F9327889B5C00D8298C /* PrivadoNews.xcdatamodeld */; };
+		3BE18F9727889B5D00D8298C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE18F9627889B5D00D8298C /* Assets.xcassets */; };
+		3BE18F9A27889B5D00D8298C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE18F9827889B5D00D8298C /* LaunchScreen.storyboard */; };
+		3BE18FA527889B5D00D8298C /* PrivadoNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18FA427889B5D00D8298C /* PrivadoNewsTests.swift */; };
+		3BE18FAF27889B5D00D8298C /* PrivadoNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18FAE27889B5D00D8298C /* PrivadoNewsUITests.swift */; };
+		3BE18FB127889B5D00D8298C /* PrivadoNewsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18FB027889B5D00D8298C /* PrivadoNewsUITestsLaunchTests.swift */; };
+		3BE18FBE27889C0200D8298C /* APIFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18FBD27889C0200D8298C /* APIFetch.swift */; };
+		3BE18FC02788A14900D8298C /* ArticleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18FBF2788A14900D8298C /* ArticleListCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BE18FA127889B5D00D8298C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BE18F7F27889B5C00D8298C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE18F8627889B5C00D8298C;
+			remoteInfo = PrivadoNews;
+		};
+		3BE18FAB27889B5D00D8298C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BE18F7F27889B5C00D8298C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE18F8627889B5C00D8298C;
+			remoteInfo = PrivadoNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BE18F8727889B5C00D8298C /* PrivadoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivadoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE18F8A27889B5C00D8298C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3BE18F8C27889B5C00D8298C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3BE18F8E27889B5C00D8298C /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
+		3BE18F9127889B5C00D8298C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BE18F9427889B5C00D8298C /* PrivadoNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrivadoNews.xcdatamodel; sourceTree = "<group>"; };
+		3BE18F9627889B5D00D8298C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BE18F9927889B5D00D8298C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BE18F9B27889B5D00D8298C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BE18FA027889B5D00D8298C /* PrivadoNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE18FA427889B5D00D8298C /* PrivadoNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoNewsTests.swift; sourceTree = "<group>"; };
+		3BE18FAA27889B5D00D8298C /* PrivadoNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE18FAE27889B5D00D8298C /* PrivadoNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoNewsUITests.swift; sourceTree = "<group>"; };
+		3BE18FB027889B5D00D8298C /* PrivadoNewsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoNewsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BE18FBD27889C0200D8298C /* APIFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetch.swift; sourceTree = "<group>"; };
+		3BE18FBF2788A14900D8298C /* ArticleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BE18F8427889B5C00D8298C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18F9D27889B5D00D8298C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18FA727889B5D00D8298C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BE18F7E27889B5C00D8298C = {
+			isa = PBXGroup;
+			children = (
+				3BE18F8927889B5C00D8298C /* PrivadoNews */,
+				3BE18FA327889B5D00D8298C /* PrivadoNewsTests */,
+				3BE18FAD27889B5D00D8298C /* PrivadoNewsUITests */,
+				3BE18F8827889B5C00D8298C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BE18F8827889B5C00D8298C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BE18F8727889B5C00D8298C /* PrivadoNews.app */,
+				3BE18FA027889B5D00D8298C /* PrivadoNewsTests.xctest */,
+				3BE18FAA27889B5D00D8298C /* PrivadoNewsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BE18F8927889B5C00D8298C /* PrivadoNews */ = {
+			isa = PBXGroup;
+			children = (
+				3BE18F8A27889B5C00D8298C /* AppDelegate.swift */,
+				3BE18F8C27889B5C00D8298C /* SceneDelegate.swift */,
+				3BE18F8E27889B5C00D8298C /* ArticleListViewController.swift */,
+				3BE18F9027889B5C00D8298C /* Main.storyboard */,
+				3BE18F9627889B5D00D8298C /* Assets.xcassets */,
+				3BE18F9827889B5D00D8298C /* LaunchScreen.storyboard */,
+				3BE18F9B27889B5D00D8298C /* Info.plist */,
+				3BE18F9327889B5C00D8298C /* PrivadoNews.xcdatamodeld */,
+				3BE18FBD27889C0200D8298C /* APIFetch.swift */,
+				3BE18FBF2788A14900D8298C /* ArticleListCell.swift */,
+			);
+			path = PrivadoNews;
+			sourceTree = "<group>";
+		};
+		3BE18FA327889B5D00D8298C /* PrivadoNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BE18FA427889B5D00D8298C /* PrivadoNewsTests.swift */,
+			);
+			path = PrivadoNewsTests;
+			sourceTree = "<group>";
+		};
+		3BE18FAD27889B5D00D8298C /* PrivadoNewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BE18FAE27889B5D00D8298C /* PrivadoNewsUITests.swift */,
+				3BE18FB027889B5D00D8298C /* PrivadoNewsUITestsLaunchTests.swift */,
+			);
+			path = PrivadoNewsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BE18F8627889B5C00D8298C /* PrivadoNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE18FB427889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNews" */;
+			buildPhases = (
+				3BE18F8327889B5C00D8298C /* Sources */,
+				3BE18F8427889B5C00D8298C /* Frameworks */,
+				3BE18F8527889B5C00D8298C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrivadoNews;
+			productName = PrivadoNews;
+			productReference = 3BE18F8727889B5C00D8298C /* PrivadoNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BE18F9F27889B5D00D8298C /* PrivadoNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE18FB727889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNewsTests" */;
+			buildPhases = (
+				3BE18F9C27889B5D00D8298C /* Sources */,
+				3BE18F9D27889B5D00D8298C /* Frameworks */,
+				3BE18F9E27889B5D00D8298C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE18FA227889B5D00D8298C /* PBXTargetDependency */,
+			);
+			name = PrivadoNewsTests;
+			productName = PrivadoNewsTests;
+			productReference = 3BE18FA027889B5D00D8298C /* PrivadoNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BE18FA927889B5D00D8298C /* PrivadoNewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE18FBA27889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNewsUITests" */;
+			buildPhases = (
+				3BE18FA627889B5D00D8298C /* Sources */,
+				3BE18FA727889B5D00D8298C /* Frameworks */,
+				3BE18FA827889B5D00D8298C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE18FAC27889B5D00D8298C /* PBXTargetDependency */,
+			);
+			name = PrivadoNewsUITests;
+			productName = PrivadoNewsUITests;
+			productReference = 3BE18FAA27889B5D00D8298C /* PrivadoNewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BE18F7F27889B5C00D8298C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					3BE18F8627889B5C00D8298C = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					3BE18F9F27889B5D00D8298C = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 3BE18F8627889B5C00D8298C;
+					};
+					3BE18FA927889B5D00D8298C = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 3BE18F8627889B5C00D8298C;
+					};
+				};
+			};
+			buildConfigurationList = 3BE18F8227889B5C00D8298C /* Build configuration list for PBXProject "PrivadoNews" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BE18F7E27889B5C00D8298C;
+			productRefGroup = 3BE18F8827889B5C00D8298C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BE18F8627889B5C00D8298C /* PrivadoNews */,
+				3BE18F9F27889B5D00D8298C /* PrivadoNewsTests */,
+				3BE18FA927889B5D00D8298C /* PrivadoNewsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BE18F8527889B5C00D8298C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE18F9A27889B5D00D8298C /* LaunchScreen.storyboard in Resources */,
+				3BE18F9727889B5D00D8298C /* Assets.xcassets in Resources */,
+				3BE18F9227889B5C00D8298C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18F9E27889B5D00D8298C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18FA827889B5D00D8298C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BE18F8327889B5C00D8298C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE18F8F27889B5C00D8298C /* ArticleListViewController.swift in Sources */,
+				3BE18FBE27889C0200D8298C /* APIFetch.swift in Sources */,
+				3BE18F8B27889B5C00D8298C /* AppDelegate.swift in Sources */,
+				3BE18F9527889B5C00D8298C /* PrivadoNews.xcdatamodeld in Sources */,
+				3BE18FC02788A14900D8298C /* ArticleListCell.swift in Sources */,
+				3BE18F8D27889B5C00D8298C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18F9C27889B5D00D8298C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE18FA527889B5D00D8298C /* PrivadoNewsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE18FA627889B5D00D8298C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE18FAF27889B5D00D8298C /* PrivadoNewsUITests.swift in Sources */,
+				3BE18FB127889B5D00D8298C /* PrivadoNewsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BE18FA227889B5D00D8298C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE18F8627889B5C00D8298C /* PrivadoNews */;
+			targetProxy = 3BE18FA127889B5D00D8298C /* PBXContainerItemProxy */;
+		};
+		3BE18FAC27889B5D00D8298C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE18F8627889B5C00D8298C /* PrivadoNews */;
+			targetProxy = 3BE18FAB27889B5D00D8298C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3BE18F9027889B5C00D8298C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BE18F9127889B5C00D8298C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BE18F9827889B5D00D8298C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BE18F9927889B5D00D8298C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BE18FB227889B5D00D8298C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3BE18FB327889B5D00D8298C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BE18FB527889B5D00D8298C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PrivadoNews/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3BE18FB627889B5D00D8298C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PrivadoNews/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3BE18FB827889B5D00D8298C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrivadoNews.app/PrivadoNews";
+			};
+			name = Debug;
+		};
+		3BE18FB927889B5D00D8298C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrivadoNews.app/PrivadoNews";
+			};
+			name = Release;
+		};
+		3BE18FBB27889B5D00D8298C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrivadoNews;
+			};
+			name = Debug;
+		};
+		3BE18FBC27889B5D00D8298C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6P22UTPMU7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pstudio.PrivadoNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrivadoNews;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BE18F8227889B5C00D8298C /* Build configuration list for PBXProject "PrivadoNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE18FB227889B5D00D8298C /* Debug */,
+				3BE18FB327889B5D00D8298C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE18FB427889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE18FB527889B5D00D8298C /* Debug */,
+				3BE18FB627889B5D00D8298C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE18FB727889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE18FB827889B5D00D8298C /* Debug */,
+				3BE18FB927889B5D00D8298C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE18FBA27889B5D00D8298C /* Build configuration list for PBXNativeTarget "PrivadoNewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE18FBB27889B5D00D8298C /* Debug */,
+				3BE18FBC27889B5D00D8298C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3BE18F9327889B5C00D8298C /* PrivadoNews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3BE18F9427889B5C00D8298C /* PrivadoNews.xcdatamodel */,
+			);
+			currentVersion = 3BE18F9427889B5C00D8298C /* PrivadoNews.xcdatamodel */;
+			path = PrivadoNews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3BE18F7F27889B5C00D8298C /* Project object */;
+}
