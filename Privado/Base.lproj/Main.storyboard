@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EBW-Qp-itr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JSG-6R-VJa">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Article View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Privado" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArticleViewController" customModule="Privado" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,11 +22,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="-82"/>
+            <point key="canvasLocation" x="1630" y="-8"/>
         </scene>
         <!--Mais relevantes-->
         <scene sceneID="GnC-cJ-ipj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcY-3l-1w4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JSG-6R-VJa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mais relevantes" image="chart.line.uptrend.xyaxis" catalog="system" id="YZv-BD-QFP"/>
                     <toolbarItems/>
@@ -39,68 +40,12 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nvR-xW-f69"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcY-3l-1w4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="-82"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="v0D-Eu-eKa">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="EBW-Qp-itr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o3c-Gg-oc2">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="JSG-6R-VJa" kind="relationship" relationship="viewControllers" id="NdH-cF-tZd"/>
-                        <segue destination="QW1-HH-4Cr" kind="relationship" relationship="viewControllers" id="Qsr-cv-0iE"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rJZ-Cp-oVK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-104.34782608695653" y="-8.0357142857142847"/>
-        </scene>
-        <!--Últimas-->
-        <scene sceneID="47e-Ct-WPW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QW1-HH-4Cr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Últimas" image="newspaper" catalog="system" id="3qM-d9-Zbx"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="11J-VZ-Jc4">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="NZK-kR-sNO" kind="relationship" relationship="rootViewController" id="rhe-08-eNc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbv-i1-Buz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="806" y="752"/>
-        </scene>
-        <!--Latest View Controller-->
-        <scene sceneID="1Be-lk-Oc2">
-            <objects>
-                <viewController id="NZK-kR-sNO" customClass="LatestViewController" customModule="Privado" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pcq-HF-8bp">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oMB-6v-Iqs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="pig-Ph-TYA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NaW-UH-aLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1681" y="752"/>
+            <point key="canvasLocation" x="795" y="-8"/>
         </scene>
     </scenes>
     <resources>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="101"/>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

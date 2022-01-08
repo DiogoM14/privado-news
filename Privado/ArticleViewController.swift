@@ -1,16 +1,16 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     private let tableView: UITableView = {
         let table = UITableView()
         
-        table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
+        table.register(ArticlesTableViewCell.self, forCellReuseIdentifier: ArticlesTableViewCell.identifier)
         return table
     }()
     
     private let searchVC = UISearchController(searchResultsController: nil)
-    private var viewModels = [NewsTableViewCellViewModel]()
+    private var viewModels = [ArticlesTableViewCellViewModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            case .success(let articles):
                self?.articles = articles
                self?.viewModels = articles.compactMap({
-                   NewsTableViewCellViewModel(
+                   ArticlesTableViewCellViewModel(
                     title: $0.title,
                     summary: $0.summary ?? "Sem Descrição para mostrar",
                     imageURL: URL(string: $0.imageUrl ?? ""),
@@ -66,9 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: NewsTableViewCell.identifier,
+            withIdentifier: ArticlesTableViewCell.identifier,
             for: indexPath
-        )as? NewsTableViewCell else {
+        )as? ArticlesTableViewCell else {
             fatalError()
         }
         
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case .success(let articles):
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
-                    NewsTableViewCellViewModel(
+                    ArticlesTableViewCellViewModel(
                      title: $0.title,
                      summary: $0.summary ?? "Sem Descrição para mostrar",
                      imageURL: URL(string: $0.imageUrl ?? ""),

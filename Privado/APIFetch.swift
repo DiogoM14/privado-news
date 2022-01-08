@@ -6,7 +6,7 @@ final class APIFetch {
     struct Constants {
         static let toHeadlinesURL = URL(string: "https://api.spaceflightnewsapi.net/v3/articles")
         
-        static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?title_contains="
+        static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?summary_contains="
     }
     
     private init() {}

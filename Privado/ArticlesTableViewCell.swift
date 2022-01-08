@@ -1,6 +1,6 @@
 import UIKit
 
-class NewsTableViewCellViewModel {
+class ArticlesTableViewCellViewModel {
     let title : String
     let summary : String
     let imageURL : URL?
@@ -23,8 +23,8 @@ class NewsTableViewCellViewModel {
     }
 }
 
-class NewsTableViewCell: UITableViewCell {
-static let identifier = "NewsTableViewCell"
+class ArticlesTableViewCell: UITableViewCell {
+static let identifier = "ArticlesTableViewCell"
     
     private let newsTitleLabel: UILabel = {
         let label = UILabel()
@@ -41,7 +41,7 @@ static let identifier = "NewsTableViewCell"
     
     private let newsImageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 6
+        imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.backgroundColor = .secondarySystemBackground
@@ -76,16 +76,17 @@ static let identifier = "NewsTableViewCell"
         super.layoutSubviews()
         
         newsTitleLabel.frame=CGRect(
-            x: 10,
+            x: 16,
             y: 0,
             width: contentView.frame.size.width - 170,
             height: 70)
         
         subTitleLabel.frame = CGRect(
-            x: 10,
+            x: 16,
             y: 70,
             width: contentView.frame.size.width - 170,
             height: contentView.frame.size.height/2)
+        
         newsImageView.frame = CGRect(
             x: contentView.frame.size.width-150,
             y: 5,
@@ -102,7 +103,7 @@ static let identifier = "NewsTableViewCell"
 //        publishedAtLabel.text = nil
     }
     
-    func configure(with viewModel : NewsTableViewCellViewModel ){
+    func configure(with viewModel : ArticlesTableViewCellViewModel ){
         newsTitleLabel.text = viewModel.title
         subTitleLabel.text = viewModel.summary
 //        authorLabel.text = viewModel.newsSite
