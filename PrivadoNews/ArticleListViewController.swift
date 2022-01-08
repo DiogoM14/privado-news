@@ -4,7 +4,17 @@ import SafariServices
 let imageCache = NSCache<AnyObject, AnyObject>()
 
 class ArticleListViewController: UITableViewController {
-
+    static let showDetailSegueIdentifier = "ShowDetailSegue"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Self.showDetailSegueIdentifier,
+            let destination = segue.destination as? DetailViewController,
+            let cell = sender as? UITableViewCell,
+            let indexPath = tableView.indexPath(for: cell) {
+            let article = APIFetch.testData[indexPath.row]
+            destination.configure(with: article)
+        }
+    }
 }
 
 extension ArticleListViewController {
@@ -35,10 +45,10 @@ extension ArticleListViewController {
         let article = APIFetch.testData[indexPath.row]
     
         // OUTPUT DO PRINT -> Optional("https://swiftdeveloperblog.com/wp-content/uploads/2015/07/1.jpeg")
-        cell.siteLabel.text = article.title
+        cell.siteLabel.text = article.newsSite
         cell.summaryLabel.text = article.summary
         cell.uploadDateLabel.text = article.publishedAt
-//        cell.imageFrame = UI(article.imageUrl)
+//        cell.imageFrame = (article.imageUrl)
         
         return cell
     }

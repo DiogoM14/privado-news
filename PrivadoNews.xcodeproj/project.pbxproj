@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA7F59B278A0E0800CE246A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7F59A278A0E0800CE246A /* DetailViewController.swift */; };
 		3BE18F8B27889B5C00D8298C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8A27889B5C00D8298C /* AppDelegate.swift */; };
 		3BE18F8D27889B5C00D8298C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8C27889B5C00D8298C /* SceneDelegate.swift */; };
 		3BE18F8F27889B5C00D8298C /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F8E27889B5C00D8298C /* ArticleListViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BA7F59A278A0E0800CE246A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3BE18F8727889B5C00D8298C /* PrivadoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivadoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE18F8A27889B5C00D8298C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE18F8C27889B5C00D8298C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3BE18F9327889B5C00D8298C /* PrivadoNews.xcdatamodeld */,
 				3BE18FBD27889C0200D8298C /* APIFetch.swift */,
 				3BE18FBF2788A14900D8298C /* ArticleListCell.swift */,
+				3BA7F59A278A0E0800CE246A /* DetailViewController.swift */,
 			);
 			path = PrivadoNews;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				3BE18F9527889B5C00D8298C /* PrivadoNews.xcdatamodeld in Sources */,
 				3BE18FC02788A14900D8298C /* ArticleListCell.swift in Sources */,
 				3BE18F8D27889B5C00D8298C /* SceneDelegate.swift in Sources */,
+				3BA7F59B278A0E0800CE246A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
