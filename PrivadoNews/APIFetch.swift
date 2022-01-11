@@ -25,11 +25,14 @@ class APIFetch {
                 do {
                     let result = try JSONDecoder().decode([Article].self, from: data)
                     
-                    let filtedResult = result.map({ (t) -> Article in
-                        return Article(title: t.title, url: t.url, imageUrl: t.imageUrl, newsSite: t.newsSite, summary: t.summary, publishedAt: t.publishedAt)  
-                    })
+//                    let filteredResult = result.map({ (t) -> Article in
+//                        return Article(title: t.title, url: t.url, imageUrl: t.imageUrl, newsSite: t.newsSite, summary: t.summary, publishedAt: t.publishedAt)
+//                    })
                     
-                    completion(.success(filtedResult))
+                    DispatchQueue.main
+                        .async {
+                            completion(.success(result))
+                        }
                 }
                 catch {
                     completion(.failure(error))
@@ -84,8 +87,8 @@ struct Article: Codable {
 
 extension APIFetch {
     static var testData = [
-        Article(title: "Submit reimbursement report", url: "github.com/diogom14.png", imageUrl: "https://swiftdeveloperblog.com/wp-content/uploads/2015/07/1.jpeg", newsSite: "Pelouro", summary: "Don't forget about taxi receipts", publishedAt: "10-01-2021"),
-        Article(title: "From contractor to satellite operator: Q&A with Sidus Space CEO Carol Craig", url: Optional("https://spacenews.com/from-contractor-to-satellite-operator-qa-with-sidus-space-ceo-carol-craig/"), imageUrl: Optional("https://spacenews.com/wp-content/uploads/2022/01/Lizzie-Sat.jpg"), newsSite: Optional("SpaceNews"), summary: Optional("Sidus Space became a public company in December to help transform the Space Coast government contractor into a commercial satellite constellation operator. SpaceNews interviewed Sidus Space CEO Carol Craig, who became the first woman owner-founder of a space company to go public, to learn more about the plans as its first satellite aims to launch late this year."), publishedAt: Optional("2022-01-07T22:02:45.000Z")),
+        PrivadoNews.Article(title: "Submit reimbursement report", url: "github.com/diogom14.png", imageUrl: "https://swiftdeveloperblog.com/wp-content/uploads/2015/07/1.jpeg", newsSite: "Pelouro", summary: "Don't forget about taxi receipts", publishedAt: "10-01-2021"),
+        PrivadoNews.Article(title: "From contractor to satellite operator: Q&A with Sidus Space CEO Carol Craig", url: Optional("https://spacenews.com/from-contractor-to-satellite-operator-qa-with-sidus-space-ceo-carol-craig/"), imageUrl: Optional("https://spacenews.com/wp-content/uploads/2022/01/Lizzie-Sat.jpg"), newsSite: Optional("SpaceNews"), summary: Optional("Sidus Space became a public company in December to help transform the Space Coast government contractor into a commercial satellite constellation operator. SpaceNews interviewed Sidus Space CEO Carol Craig, who became the first woman owner-founder of a space company to go public, to learn more about the plans as its first satellite aims to launch late this year."), publishedAt: Optional("2022-01-07T22:02:45.000Z")),
         PrivadoNews.Article(title: "Expedition 66 concludes 2021 with busy December aboard ISS", url: Optional("https://www.nasaspaceflight.com/2022/01/expedition-66-december/"), imageUrl: Optional("https://www.nasaspaceflight.com/wp-content/uploads/2022/01/51732391125_a6a60014c4_k.jpg"), newsSite: Optional("NASA Spaceflight"), summary: Optional("While many cultures celebrated their respective holiday traditions on Earth, the crew of the International Space Station (ISS) carried on with their busy schedules high above. December 2021 saw three major visiting vehicle movements, one spacewalk, and many of the research and maintenance tasks that allow the ISS to function as one of the world’s most important scientific laboratories."), publishedAt: Optional("2022-01-07T19:18:34.000Z")),
         PrivadoNews.Article(title: "Arianespace looks to transitions of vehicles and business in 2022", url: Optional("https://spacenews.com/arianespace-looks-to-transitions-of-vehicles-and-business-in-2022/"), imageUrl: Optional("https://spacenews.com/wp-content/uploads/2022/01/a5-jwst-2.jpg"), newsSite: Optional("SpaceNews"), summary: Optional("After its most active year in two decades capped by the launch of the James Webb Space Telescope for NASA, Arianespace is heading into a period of transition in 2022 marked by the introduction of new vehicles and a changing mix of customers."), publishedAt: Optional("2022-01-07T13:12:45.000Z")),
         PrivadoNews.Article(title: "Rocket Report: SpaceX raises more cash, buy your own New Glenn", url: Optional("https://arstechnica.com/science/2022/01/rocket-report-faa-delays-texas-spaceport-review-sls-slips-to-late-spring/"), imageUrl: Optional("https://cdn.arstechnica.net/wp-content/uploads/2022/01/53101_A4.jpg"), newsSite: Optional("Arstechnica"), summary: Optional("\"SpaceX ... is currently drafting responses for the over 18,000 public comments.\""), publishedAt: Optional("2022-01-07T12:00:20.000Z")),

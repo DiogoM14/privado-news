@@ -20,6 +20,7 @@ class ArticleListViewController: UITableViewController {
 extension ArticleListViewController {
     static let articleListCellIdentifier = "ArticleListCell"
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return APIFetch.testData.count
     }
@@ -29,26 +30,20 @@ extension ArticleListViewController {
             fatalError("Unable to dequeue ReminderCell")
         }
         
-//        APIFetch.shared.getTopNews { result in
-//        switch result {
-//            case .success(let article):
-//            self.article = Article
-//                cell.siteLabel.text = article.title
-//                cell.summaryLabel.text = article.summary
-//                cell.uploadDateLabel.text = article.publishedAt
-//                cell.imageFrame = image
-//            case .failure:
-//                print("ardeu")
-//            }
-//        }
-        
-        let article = APIFetch.testData[indexPath.row]
-    
-        // OUTPUT DO PRINT -> Optional("https://swiftdeveloperblog.com/wp-content/uploads/2015/07/1.jpeg")
-        cell.siteLabel.text = article.newsSite
-        cell.summaryLabel.text = article.summary
-        cell.uploadDateLabel.text = article.publishedAt
-//        cell.imageFrame = (article.imageUrl)
+        APIFetch.shared.getTopNews { result in
+        switch result {
+            case .success(let articles):
+            let article = articles[indexPath.row]
+            
+            cell.siteLabel.text = article.newsSite
+            cell.summaryLabel.text = article.title
+            cell.uploadDateLabel.text = article.publishedAt
+//            cell.imageFrame = image
+
+            case .failure:
+                print("ardeu")
+            }
+        }
         
         return cell
     }
