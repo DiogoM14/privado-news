@@ -24,7 +24,7 @@ class ArticlesTableViewCellViewModel {
 }
 
 class ArticlesTableViewCell: UITableViewCell {
-static let identifier = "ArticlesTableViewCell"
+    static let identifier = "ArticlesTableViewCell"
     
     private let newsTitleLabel: UILabel = {
         let label = UILabel()

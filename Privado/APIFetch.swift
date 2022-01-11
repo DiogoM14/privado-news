@@ -7,6 +7,8 @@ final class APIFetch {
         static let toHeadlinesURL = URL(string: "https://api.spaceflightnewsapi.net/v3/articles")
         
         static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?summary_contains="
+        
+        static let articleById = "https://api.spaceflightnewsapi.net/v3/articles/"
     }
     
     private init() {}
@@ -54,6 +56,35 @@ final class APIFetch {
                     let result = try JSONDecoder().decode([Article].self, from: data)
                     
                     
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    public func getById(with query: String, completion: @escaping (Result<Article, Error>) -> Void) {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        
+        let urlString = Constants.articleById + query
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+
+            if let error = error {
+                completion(.failure(error))
+            }
+            else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(Article.self, from: data)
+                    print(result)
                     completion(.success(result))
                 }
                 catch {

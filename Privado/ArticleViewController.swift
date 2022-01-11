@@ -72,6 +72,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError()
         }
         
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.configure(with: viewModels[indexPath.row])
         return cell
     }
@@ -80,10 +81,29 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
         let article = articles[indexPath.row]
         
-        guard let url = URL (string: article.url ?? "") else {
+        guard let url = URL (string: "13530") else {
             return
         }
-        let vc = SFSafariViewController(url: url)
+        
+        APIFetch.shared.getById(with: "13530"){ [weak self] result in
+            switch result {
+            case .success(let articles):
+                DetailViewController(
+                    title: articles.title,
+                    summary: articles.summary ?? "Sem Descrição para mostrar",
+                    imageURL: URL(string: articles.imageUrl ?? ""),
+                    newsSite: articles.newsSite ?? "",
+                    publishedAt: articles.publishedAt ?? ""
+                )
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         present(vc, animated: true)
     }
     
