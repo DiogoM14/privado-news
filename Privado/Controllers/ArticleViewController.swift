@@ -2,6 +2,8 @@ import UIKit
 import SafariServices
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -21,6 +23,11 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
+        
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
+        
         
         APIFetch.shared.getTopNews { [weak self] result in
            switch result {
@@ -55,13 +62,39 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame =  view.bounds
+        tableView.frame = view.bounds
     }
     
     
     //Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
+    }
+    
+    @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+        APIFetch.shared.getTopNews { [weak self] result in
+           switch result {
+           case .success(let articles):
+               self?.articles = articles
+               self?.viewModels = articles.compactMap({
+                   ArticlesTableViewCellViewModel(
+                    title: $0.title,
+                    summary: $0.summary ?? "Sem Descrição para mostrar",
+                    imageURL: URL(string: $0.imageUrl ?? ""),
+                    newsSite: $0.newsSite ?? "Sem autor",
+                    publishedAt: $0.publishedAt ?? ""
+                   )
+               })
+               
+               DispatchQueue.main.async {
+                   self?.tableView.reloadData()
+               }
+           case .failure(let error):
+               print(error)
+           }
+       }
+        
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,36 +112,20 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let article = articles[indexPath.row]
-        
-        guard let url = URL (string: "13530") else {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        else {
             return
         }
         
-        APIFetch.shared.getById(with: "13530"){ [weak self] result in
-            switch result {
-            case .success(let articles):
-                DetailViewController(
-                    title: articles.title,
-                    summary: articles.summary ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: articles.imageUrl ?? ""),
-                    newsSite: articles.newsSite ?? "",
-                    publishedAt: articles.publishedAt ?? ""
-                )
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.searchVC.dismiss(animated: true, completion: nil)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-        present(vc, animated: true)
+        vc.article = articles[indexPath.row]
+        
+        vc.image = viewModels[indexPath.row].imageData
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 310
     }
     
     //Search

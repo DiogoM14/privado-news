@@ -1,30 +1,21 @@
 import UIKit
 
-class ArticlesTableViewCellViewModel {
-    let title : String
-    let summary : String
-    let imageURL : URL?
-    var imageData: Data? = nil
-    var newsSite: String?
-    var publishedAt: String?
-    
-    init(
-        title : String,
-        summary : String,
-        imageURL : URL?,
-        newsSite : String,
-        publishedAt : String
-    ){
-        self.title = title
-        self.summary = summary
-        self.imageURL = imageURL
-        self.newsSite = newsSite
-        self.publishedAt = publishedAt
-    }
-}
-
 class ArticlesTableViewCell: UITableViewCell {
     static let identifier = "ArticlesTableViewCell"
+    
+    private let newsSiteLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 14, weight: .light)
+        return label
+    }()
+    
+    private let newsPublishedAt: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 14, weight: .light)
+        return label
+    }()
     
     private let newsTitleLabel: UILabel = {
         let label = UILabel()
@@ -32,6 +23,7 @@ class ArticlesTableViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
+    
     private let subTitleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -48,24 +40,14 @@ class ArticlesTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-//    private let authorLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = .systemFont(ofSize: 17, weight: .thin)
-//        return label
-//    }()
-//    private let publishedAtLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = .systemFont(ofSize: 17, weight: .thin)
-//        return label
-//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(newsSiteLabel)
         contentView.addSubview(newsTitleLabel)
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(newsImageView)
-//        contentView.addSubview(authorLabel)
-//        contentView.addSubview(publishedAtLabel)
+        contentView.addSubview(newsPublishedAt)
     }
     
     required init?(coder: NSCoder) {
@@ -75,39 +57,51 @@ class ArticlesTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        newsSiteLabel.frame=CGRect(
+            x: 16,
+            y: 248,
+            width: contentView.frame.size.width,
+            height: 70)
+        
         newsTitleLabel.frame=CGRect(
             x: 16,
-            y: 0,
-            width: contentView.frame.size.width - 170,
+            y: 205,
+            width: contentView.frame.size.width,
             height: 70)
         
         subTitleLabel.frame = CGRect(
             x: 16,
-            y: 70,
-            width: contentView.frame.size.width - 170,
-            height: contentView.frame.size.height/2)
+            y: 200,
+            width: contentView.frame.size.width,
+            height: 200)
         
         newsImageView.frame = CGRect(
-            x: contentView.frame.size.width-150,
+            x: 16,
             y: 5,
-            width: 140,
-            height: contentView.frame.size.height - 10)
+            width: contentView.frame.size.width,
+            height: 200)
+        
+        newsPublishedAt.frame = CGRect(
+            x: contentView.frame.size.width - 150,
+            y: 248,
+            width: contentView.frame.size.width - 200,
+            height: 70)
     }
    
     override func prepareForReuse() {
         super.prepareForReuse()
+        newsSiteLabel.text = nil
         newsTitleLabel.text = nil
         subTitleLabel.text = nil
         newsImageView.image = nil
-//        authorLabel.text = nil
-//        publishedAtLabel.text = nil
+        newsPublishedAt.text = nil
     }
     
     func configure(with viewModel : ArticlesTableViewCellViewModel ){
         newsTitleLabel.text = viewModel.title
-        subTitleLabel.text = viewModel.summary
-//        authorLabel.text = viewModel.newsSite
-//        publishedAtLabel.text = viewModel.publishedAt
+        newsSiteLabel.text = viewModel.newsSite
+        newsPublishedAt.text = viewModel.publishedAt
+//        newsPublishedAt.text = "1d"
         
         //Image
         if let data = viewModel.imageData {
@@ -125,8 +119,6 @@ class ArticlesTableViewCell: UITableViewCell {
                     self?.newsImageView.image = UIImage(data: data)
                 }
             }.resume()
-            
         }
     }
-
 }
