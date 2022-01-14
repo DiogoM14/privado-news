@@ -20,6 +20,8 @@
 		3B8AEBEA2768FCF200409124 /* PrivadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBE92768FCF200409124 /* PrivadoTests.swift */; };
 		3B8AEBF42768FCF200409124 /* PrivadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */; };
 		3B8AEBF62768FCF200409124 /* PrivadoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */; };
+		3B96F58F2791DAC6001C5991 /* RelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */; };
+		3B96F5912791DAD7001C5991 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96F5902791DAD7001C5991 /* SettingsViewController.swift */; };
 		3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */; };
 		3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		3B8AEBEF2768FCF200409124 /* PrivadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8AEBF32768FCF200409124 /* PrivadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITests.swift; sourceTree = "<group>"; };
 		3B8AEBF52768FCF200409124 /* PrivadoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivadoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedViewController.swift; sourceTree = "<group>"; };
+		3B96F5902791DAD7001C5991 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetch.swift; sourceTree = "<group>"; };
 		3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +105,8 @@
 			children = (
 				3B7FCE09278E13BC00243F41 /* DetailViewController.swift */,
 				3B8AEBD32768FCF100409124 /* ArticleViewController.swift */,
+				3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */,
+				3B96F5902791DAD7001C5991 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +316,8 @@
 			files = (
 				3B8AEBD42768FCF100409124 /* ArticleViewController.swift in Sources */,
 				3B7CED49278F43830093FFAB /* DetailView.swift in Sources */,
+				3B96F5912791DAD7001C5991 /* SettingsViewController.swift in Sources */,
+				3B96F58F2791DAC6001C5991 /* RelatedViewController.swift in Sources */,
 				3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */,
 				3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */,
 				3B7FCE10278E3AC800243F41 /* ArticlesTableCellModels.swift in Sources */,

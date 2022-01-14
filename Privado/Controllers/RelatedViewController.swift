@@ -1,9 +1,7 @@
 import UIKit
 import SafariServices
 
-class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
-    
+class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -11,14 +9,13 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         return table
     }()
     
-    private let searchVC = UISearchController(searchResultsController: nil)
     private var viewModels = [ArticlesTableViewCellViewModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Home"
+        title = "ISS"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,7 +24,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
-        APIFetch.shared.getTopNews { [weak self] result in
+        APIFetch.shared.getIssDiary { [weak self] result in
            switch result {
            case .success(let articles):
                self?.articles = articles
@@ -48,14 +45,6 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                print(error)
            }
        }
-        // Do any additional setup after loading the view.
-        
-        createSearchBar()
-    }
-    
-    private func createSearchBar(){
-        navigationItem.searchController = searchVC
-        searchVC.searchBar.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +59,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
-        APIFetch.shared.getTopNews { [weak self] result in
+        APIFetch.shared.getIssDiary { [weak self] result in
            switch result {
            case .success(let articles):
                self?.articles = articles
@@ -125,35 +114,4 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 310
     }
-    
-    //Search
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, !text.isEmpty else {
-            return
-        }
-        
-        APIFetch.shared.search(with: text){ [weak self] result in
-            switch result {
-            case .success(let articles):
-                self?.articles = articles
-                self?.viewModels = articles.compactMap({
-                    ArticlesTableViewCellViewModel(
-                     title: $0.title,
-                     summary: $0.summary ?? "Sem Descrição para mostrar",
-                     imageURL: URL(string: $0.imageUrl ?? ""),
-                     newsSite: $0.newsSite ?? "",
-                     publishedAt: $0.publishedAt ?? ""
-                    )
-                })
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.searchVC.dismiss(animated: true, completion: nil)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
 }
