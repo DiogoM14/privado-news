@@ -23,6 +23,8 @@
 		3B96F58F2791DAC6001C5991 /* RelatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */; };
 		3B96F5912791DAD7001C5991 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96F5902791DAD7001C5991 /* SettingsViewController.swift */; };
 		3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */; };
+		3BC40920279305B400FDEC1B /* CommentsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4091F279305B400FDEC1B /* CommentsModalViewController.swift */; };
+		3BC4092227930CFD00FDEC1B /* WelcommingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */; };
 		3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedViewController.swift; sourceTree = "<group>"; };
 		3B96F5902791DAD7001C5991 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetch.swift; sourceTree = "<group>"; };
+		3BC4091F279305B400FDEC1B /* CommentsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModalViewController.swift; sourceTree = "<group>"; };
+		3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcommingViewController.swift; sourceTree = "<group>"; };
 		3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +111,8 @@
 				3B8AEBD32768FCF100409124 /* ArticleViewController.swift */,
 				3B96F58E2791DAC6001C5991 /* RelatedViewController.swift */,
 				3B96F5902791DAD7001C5991 /* SettingsViewController.swift */,
+				3BC4091F279305B400FDEC1B /* CommentsModalViewController.swift */,
+				3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,10 +322,12 @@
 			files = (
 				3B8AEBD42768FCF100409124 /* ArticleViewController.swift in Sources */,
 				3B7CED49278F43830093FFAB /* DetailView.swift in Sources */,
+				3BC40920279305B400FDEC1B /* CommentsModalViewController.swift in Sources */,
 				3B96F5912791DAD7001C5991 /* SettingsViewController.swift in Sources */,
 				3B96F58F2791DAC6001C5991 /* RelatedViewController.swift in Sources */,
 				3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */,
 				3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */,
+				3BC4092227930CFD00FDEC1B /* WelcommingViewController.swift in Sources */,
 				3B7FCE10278E3AC800243F41 /* ArticlesTableCellModels.swift in Sources */,
 				3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */,
 				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
