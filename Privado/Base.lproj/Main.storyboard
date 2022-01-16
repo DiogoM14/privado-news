@@ -87,6 +87,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrow.up" catalog="system" title=""/>
+                                                        <connections>
+                                                            <action selector="upLikes:" destination="bH2-ks-hfu" eventType="touchUpInside" id="j5L-zV-686"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFO-jz-sVD">
                                                         <rect key="frame" x="344.66666666666669" y="0.0" width="10.333333333333314" height="30.666666666666668"/>
@@ -101,6 +104,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="arrow.down" catalog="system" title=""/>
+                                                        <connections>
+                                                            <action selector="downLikes:" destination="bH2-ks-hfu" eventType="touchUpInside" id="OYO-EV-oIj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -249,10 +255,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="429" height="1100"/>
                     <connections>
+                        <outlet property="detailDownVote" destination="DmP-hY-J2M" id="syw-ov-3Zp"/>
                         <outlet property="detailImage" destination="Hrf-da-ZFi" id="7Q1-NY-Shz"/>
+                        <outlet property="detailLikes" destination="VFO-jz-sVD" id="XHJ-hd-pJD"/>
                         <outlet property="detailPublishedAt" destination="2em-je-iUc" id="sfd-zP-JGm"/>
                         <outlet property="detailSummary" destination="RlJ-pU-RfW" id="lO8-44-Fod"/>
                         <outlet property="detailTitle" destination="sRt-Uu-GJT" id="S6z-NL-7cJ"/>
+                        <outlet property="detailUpVote" destination="l79-WE-3jM" id="6yE-yM-fin"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phZ-ee-xhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -559,7 +568,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

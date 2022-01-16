@@ -1,14 +1,21 @@
 import UIKit
+import Firebase
 
 class DetailViewController: UIViewController {
     @IBOutlet var detailTitle: UILabel!
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var detailPublishedAt: UILabel!
     @IBOutlet var detailSummary: UILabel!
+    @IBOutlet var detailUpVote: UIButton!
+    @IBOutlet var detailDownVote: UIButton!
+    @IBOutlet var detailLikes: UILabel!
     
     static let identifier = "DetailViewController"
     var article: Article?
     var image: Data? = nil
+    
+    var ref: DocumentReference? = nil
+    let db = Firestore.firestore()
     
     
     override func viewDidLoad() {
@@ -21,6 +28,30 @@ class DetailViewController: UIViewController {
         detailTitle.text = article?.title
         detailSummary.text = article?.summary
         detailPublishedAt.text = article?.publishedAt
+    }
+    
+    @IBAction func upLikes(_ sender: Any) {
+        let docId = String(article!.id)
+        
+        db.collection("likes").document(docId).setData([
+            "no_likes": FieldValue.increment(Int64(1))
+        ], merge: true) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            }
+        }
+    }
+    
+    @IBAction func downLikes(_ sender: Any) {
+        let docId = String(article!.id)
+        
+        db.collection("likes").document(docId).setData([
+            "no_likes": FieldValue.increment(Int64(-1))
+        ], merge: true) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            }
+        }
     }
     
     func hideKeyboard() {

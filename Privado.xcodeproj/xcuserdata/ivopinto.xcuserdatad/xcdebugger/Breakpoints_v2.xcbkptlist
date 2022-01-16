@@ -20,5 +20,113 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Privado/Controllers/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "DetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - c15c35df3fa26e17"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.article.getter : Swift.Optional&lt;Privado.Article&gt;"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - c56bfb37c619a0b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.article.setter : Swift.Optional&lt;Privado.Article&gt;"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - 1f6529f40b7da08d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.article.modify : Swift.Optional&lt;Privado.Article&gt;"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - b09d64018aba4f96"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.article.modify : Swift.Optional&lt;Privado.Article&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - e95d931587c7e75b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Privado.DetailViewController"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "4A4CAF4B-3060-4F5A-847A-DBAFEEBAB289 - 91e3cfc2db624d94"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.DetailViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Privado.DetailViewController&gt;"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Controllers/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

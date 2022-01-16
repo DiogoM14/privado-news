@@ -1,6 +1,7 @@
 import Foundation
 
 class ArticlesTableViewCellViewModel {
+    let id: Int
     let title : String
     let summary : String
     let imageURL : URL?
@@ -9,12 +10,14 @@ class ArticlesTableViewCellViewModel {
     var publishedAt: String
     
     init(
+        id: Int,
         title : String,
         summary : String,
         imageURL : URL?,
         newsSite : String,
         publishedAt : String
     ){
+        self.id = id
         self.title = title
         self.summary = summary
         self.imageURL = imageURL

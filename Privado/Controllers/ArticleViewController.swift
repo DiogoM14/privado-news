@@ -1,5 +1,6 @@
 import UIKit
 import SafariServices
+import Firebase
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -19,7 +20,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if defaults.bool(forKey: "First Launch") == true {
+        if defaults.bool(forKey: "First Launch") == false {
             let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcommingPage")
                 present(view, animated: true, completion: nil)
             
@@ -41,6 +42,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                self?.articles = articles
                self?.viewModels = articles.compactMap({
                    ArticlesTableViewCellViewModel(
+                    id: $0.id,
                     title: $0.title,
                     summary: $0.summary ?? "Sem Descrição para mostrar",
                     imageURL: URL(string: $0.imageUrl ?? ""),
@@ -84,6 +86,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                self?.articles = articles
                self?.viewModels = articles.compactMap({
                    ArticlesTableViewCellViewModel(
+                    id: $0.id,
                     title: $0.title,
                     summary: $0.summary ?? "Sem Descrição para mostrar",
                     imageURL: URL(string: $0.imageUrl ?? ""),
@@ -146,6 +149,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
                     ArticlesTableViewCellViewModel(
+                        id: $0.id,
                      title: $0.title,
                      summary: $0.summary ?? "Sem Descrição para mostrar",
                      imageURL: URL(string: $0.imageUrl ?? ""),

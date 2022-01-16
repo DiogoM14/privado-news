@@ -30,6 +30,7 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
                self?.articles = articles
                self?.viewModels = articles.compactMap({
                    ArticlesTableViewCellViewModel(
+                    id: $0.id,
                     title: $0.title,
                     summary: $0.summary ?? "Sem Descrição para mostrar",
                     imageURL: URL(string: $0.imageUrl ?? ""),
@@ -65,6 +66,7 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
                self?.articles = articles
                self?.viewModels = articles.compactMap({
                    ArticlesTableViewCellViewModel(
+                    id: $0.id,
                     title: $0.title,
                     summary: $0.summary ?? "Sem Descrição para mostrar",
                     imageURL: URL(string: $0.imageUrl ?? ""),
