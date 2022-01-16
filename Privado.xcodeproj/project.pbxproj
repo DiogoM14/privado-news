@@ -29,6 +29,7 @@
 		3BC409272793B3A300FDEC1B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC409262793B3A300FDEC1B /* FirebaseAnalytics */; };
 		3BC409292793B3A300FDEC1B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC409282793B3A300FDEC1B /* FirebaseAuth */; };
 		3BC4092B2793B3A300FDEC1B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC4092A2793B3A300FDEC1B /* FirebaseFirestore */; };
+		3BC4092D27945ABD00FDEC1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */; };
 		3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		3BC4091F279305B400FDEC1B /* CommentsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModalViewController.swift; sourceTree = "<group>"; };
 		3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcommingViewController.swift; sourceTree = "<group>"; };
 		3BC409232793B25D00FDEC1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				3B96F5902791DAD7001C5991 /* SettingsViewController.swift */,
 				3BC4091F279305B400FDEC1B /* CommentsModalViewController.swift */,
 				3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */,
+				3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC4092D27945ABD00FDEC1B /* LoginViewController.swift in Sources */,
 				3B8AEBD42768FCF100409124 /* ArticleViewController.swift in Sources */,
 				3B7CED49278F43830093FFAB /* DetailView.swift in Sources */,
 				3BC40920279305B400FDEC1B /* CommentsModalViewController.swift in Sources */,

@@ -23,6 +23,19 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         registerForKeyboardNotifications()
         hideKeyboard()
+        
+        let docId = String(article!.id)
+        
+        db.collection("likes").document(docId)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+//                let source = document.metadata.hasPendingWrites ? "Local" : "Server"
+                self.detailLikes.text = String(describing: document.get("no_likes") ?? "0")
+            }
+
 
         detailImage.image = UIImage(data: image!)
         detailTitle.text = article?.title
