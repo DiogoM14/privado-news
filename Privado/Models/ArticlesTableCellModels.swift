@@ -6,7 +6,7 @@ class ArticlesTableViewCellViewModel {
     let imageURL : URL?
     var imageData: Data? = nil
     var newsSite: String?
-    var publishedAt: String?
+    var publishedAt: String
     
     init(
         title : String,

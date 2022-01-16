@@ -100,8 +100,17 @@ class ArticlesTableViewCell: UITableViewCell {
     func configure(with viewModel : ArticlesTableViewCellViewModel ){
         newsTitleLabel.text = viewModel.title
         newsSiteLabel.text = viewModel.newsSite
-        newsPublishedAt.text = viewModel.publishedAt
-//        newsPublishedAt.text = "1d"
+        
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "pt_BR")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+         
+        let date = RFC3339DateFormatter.date(from: viewModel.publishedAt)
+        
+        let test = String(describing: date!)
+        newsPublishedAt.text = test
+        //        newsPublishedAt.text = "1d"
         
         //Image
         if let data = viewModel.imageData {
