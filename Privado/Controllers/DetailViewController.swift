@@ -9,7 +9,8 @@ class DetailViewController: UIViewController {
     @IBOutlet var detailUpVote: UIButton!
     @IBOutlet var detailDownVote: UIButton!
     @IBOutlet var detailLikes: UILabel!
-    
+    @IBOutlet var detailTextView: UITextView!
+
     static let identifier = "DetailViewController"
     var article: Article?
     var image: Data? = nil
@@ -24,6 +25,31 @@ class DetailViewController: UIViewController {
         registerForKeyboardNotifications()
         hideKeyboard()
         
+        let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        detailTextView.layer.borderWidth = 0.5
+        detailTextView.layer.borderColor = borderColor.cgColor
+        detailTextView.layer.cornerRadius = 5.0
+        
+        let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
+        navigationItem.rightBarButtonItem = button
+        
+        detailTextView.text = "Leave your feedback here..."
+        detailTextView.textColor = UIColor.lightGray
+        
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            if detailTextView.textColor == UIColor.lightGray {
+                detailTextView.text = nil
+                detailTextView.textColor = UIColor.black
+            }
+        }
+        
+        func textViewDidEndEditing(_ textView: UITextView) {
+            if detailTextView.text.isEmpty {
+                detailTextView.text = "Placeholder"
+                detailTextView.textColor = UIColor.lightGray
+            }
+        }
+        
         let docId = String(article!.id)
         
         db.collection("likes").document(docId)
@@ -33,6 +59,7 @@ class DetailViewController: UIViewController {
                     return
                 }
 //                let source = document.metadata.hasPendingWrites ? "Local" : "Server"
+//                print(source)
                 self.detailLikes.text = String(describing: document.get("no_likes") ?? "0")
             }
 
@@ -68,11 +95,11 @@ class DetailViewController: UIViewController {
     }
     
     func hideKeyboard() {
-            self.detailImage.resignFirstResponder()
-            self.detailTitle.resignFirstResponder()
-            self.detailSummary.resignFirstResponder()
-            self.detailPublishedAt.resignFirstResponder()
-        }
+        self.detailImage.resignFirstResponder()
+        self.detailTitle.resignFirstResponder()
+        self.detailSummary.resignFirstResponder()
+        self.detailPublishedAt.resignFirstResponder()
+    }
 
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             hideKeyboard()

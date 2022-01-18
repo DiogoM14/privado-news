@@ -20,7 +20,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if defaults.bool(forKey: "First Launch") == false {
+        if defaults.bool(forKey: "First Launch") == true {
             let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcommingPage")
                 present(view, animated: true, completion: nil)
             
