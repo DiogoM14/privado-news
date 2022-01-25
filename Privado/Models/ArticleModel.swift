@@ -1,6 +1,6 @@
 import Foundation
 
-class ArticlesTableViewCellViewModel {
+class ArticleModel {
     let id: Int
     let title : String
     let summary : String

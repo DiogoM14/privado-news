@@ -17,48 +17,46 @@ final class APIFetch {
     
     private init() {}
     
-    public func getTopNews(completion: @escaping (Result<[Article], Error>) -> Void) {
+    public func getTopNews(completion: @escaping (_ article: [Article]) -> ()) {
         
         guard let url = Constants.toHeadlinesURL else {
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                
+            if let data = data {
                 do {
                     let result = try JSONDecoder().decode([Article].self, from: data)
-                    completion(.success(result))
+                    
+                    DispatchQueue.main.async {
+                        completion(result)
+                    }
                 }
                 catch {
-                    completion(.failure(error))
+                    print("Error fetching data from API (top news)")
                 }
             }
         }
         task.resume()
     }
     
-    public func getIssDiary(completion: @escaping (Result<[Article], Error>) -> Void) {
+    public func getIssDiary(completion: @escaping (_ article: [Article]) -> ()) {
         
         guard let url = Constants.issDiary else {
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                
+            if let data = data {
                 do {
                     let result = try JSONDecoder().decode([Article].self, from: data)
-                    completion(.success(result))
+                    
+                    DispatchQueue.main.async {
+                        completion(result)
+                    }
                 }
                 catch {
-                    completion(.failure(error))
+                    print("Error fetching data from API (top news)")
                 }
             }
         }

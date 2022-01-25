@@ -9,7 +9,7 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
         return table
     }()
     
-    private var viewModels = [ArticlesTableViewCellViewModel]()
+    private var viewModels = [ArticleModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
@@ -25,25 +25,19 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
         APIFetch.shared.getIssDiary { [weak self] result in
-           switch result {
-           case .success(let articles):
-               self?.articles = articles
-               self?.viewModels = articles.compactMap({
-                   ArticlesTableViewCellViewModel(
-                    id: $0.id,
-                    title: $0.title,
-                    summary: $0.summary ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: $0.imageUrl ?? ""),
-                    newsSite: $0.newsSite ?? "Sem autor",
-                    publishedAt: $0.publishedAt ?? ""
-                   )
-               })
-               
-               DispatchQueue.main.async {
-                   self?.tableView.reloadData()
-               }
-           case .failure(let error):
-               print(error)
+           self?.viewModels = result.compactMap({
+               ArticleModel(
+                id: $0.id,
+                title: $0.title,
+                summary: $0.summary ?? "Sem Descrição para mostrar",
+                imageURL: URL(string: $0.imageUrl ?? ""),
+                newsSite: $0.newsSite ?? "Sem autor",
+                publishedAt: $0.publishedAt ?? ""
+               )
+           })
+           
+           DispatchQueue.main.async {
+               self?.tableView.reloadData()
            }
        }
     }
@@ -61,25 +55,19 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
         APIFetch.shared.getIssDiary { [weak self] result in
-           switch result {
-           case .success(let articles):
-               self?.articles = articles
-               self?.viewModels = articles.compactMap({
-                   ArticlesTableViewCellViewModel(
-                    id: $0.id,
-                    title: $0.title,
-                    summary: $0.summary ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: $0.imageUrl ?? ""),
-                    newsSite: $0.newsSite ?? "Sem autor",
-                    publishedAt: $0.publishedAt ?? ""
-                   )
-               })
-               
-               DispatchQueue.main.async {
-                   self?.tableView.reloadData()
-               }
-           case .failure(let error):
-               print(error)
+           self?.viewModels = result.compactMap({
+               ArticleModel(
+                id: $0.id,
+                title: $0.title,
+                summary: $0.summary ?? "Sem Descrição para mostrar",
+                imageURL: URL(string: $0.imageUrl ?? ""),
+                newsSite: $0.newsSite ?? "Sem autor",
+                publishedAt: $0.publishedAt ?? ""
+               )
+           })
+           
+           DispatchQueue.main.async {
+               self?.tableView.reloadData()
            }
        }
         

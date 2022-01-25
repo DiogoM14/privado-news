@@ -33,23 +33,6 @@ class DetailViewController: UIViewController {
         let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.rightBarButtonItem = button
         
-        detailTextView.text = "Leave your feedback here..."
-        detailTextView.textColor = UIColor.lightGray
-        
-        func textViewDidBeginEditing(_ textView: UITextView) {
-            if detailTextView.textColor == UIColor.lightGray {
-                detailTextView.text = nil
-                detailTextView.textColor = UIColor.black
-            }
-        }
-        
-        func textViewDidEndEditing(_ textView: UITextView) {
-            if detailTextView.text.isEmpty {
-                detailTextView.text = "Placeholder"
-                detailTextView.textColor = UIColor.lightGray
-            }
-        }
-        
         let docId = String(article!.id)
         
         db.collection("likes").document(docId)

@@ -97,7 +97,7 @@ class ArticlesTableViewCell: UITableViewCell {
         newsPublishedAt.text = nil
     }
     
-    func configure(with viewModel : ArticlesTableViewCellViewModel ){
+    func configure(with viewModel : ArticleModel ){
         newsTitleLabel.text = viewModel.title
         newsSiteLabel.text = viewModel.newsSite
         

@@ -3,8 +3,6 @@ import SafariServices
 import Firebase
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
-    
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -13,14 +11,16 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }()
     
     private let searchVC = UISearchController(searchResultsController: nil)
-    private var viewModels = [ArticlesTableViewCellViewModel]()
+    private var viewModels = [ArticleModel]()
     private var articles = [Article]()
     let defaults = UserDefaults.standard
+    let myQueue = DispatchQueue.global()
+    let myGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if defaults.bool(forKey: "First Launch") == true {
+        if defaults.bool(forKey: "First Launch") == false {
             let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcommingPage")
                 present(view, animated: true, completion: nil)
             
@@ -35,30 +35,26 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
-        
-        APIFetch.shared.getTopNews { [weak self] result in
-           switch result {
-           case .success(let articles):
-               self?.articles = articles
-               self?.viewModels = articles.compactMap({
-                   ArticlesTableViewCellViewModel(
-                    id: $0.id,
-                    title: $0.title,
-                    summary: $0.summary ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: $0.imageUrl ?? ""),
-                    newsSite: $0.newsSite ?? "Sem autor",
-                    publishedAt: $0.publishedAt ?? ""
-                   )
-               })
-               
-               DispatchQueue.main.async {
-                   self?.tableView.reloadData()
-               }
-           case .failure(let error):
-               print(error)
-           }
+    
+        CacheController.shared.getArticlesByCache()
+
+        APIFetch.shared.getTopNews { [weak self] articles in
+            self?.articles = articles
+            self?.viewModels = articles.compactMap({
+               ArticleModel(
+                id: $0.id,
+                title: $0.title,
+                summary: $0.summary ?? "Sem Descrição para mostrar",
+                imageURL: URL(string: $0.imageUrl ?? ""),
+                newsSite: $0.newsSite ?? "Sem autor",
+                publishedAt: $0.publishedAt ?? ""
+               )
+            })
+
+            DispatchQueue.main.async {
+               self?.tableView.reloadData()
+            }
        }
-        // Do any additional setup after loading the view.
         
         createSearchBar()
     }
@@ -80,29 +76,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
-        APIFetch.shared.getTopNews { [weak self] result in
-           switch result {
-           case .success(let articles):
-               self?.articles = articles
-               self?.viewModels = articles.compactMap({
-                   ArticlesTableViewCellViewModel(
-                    id: $0.id,
-                    title: $0.title,
-                    summary: $0.summary ?? "Sem Descrição para mostrar",
-                    imageURL: URL(string: $0.imageUrl ?? ""),
-                    newsSite: $0.newsSite ?? "Sem autor",
-                    publishedAt: $0.publishedAt ?? ""
-                   )
-               })
-               
-               DispatchQueue.main.async {
-                   self?.tableView.reloadData()
-               }
-           case .failure(let error):
-               print(error)
-           }
-       }
-        
+        CacheController.shared.getArticlesByCache()
+
         self.tableView.refreshControl?.endRefreshing()
     }
     
@@ -148,7 +123,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             case .success(let articles):
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
-                    ArticlesTableViewCellViewModel(
+                    ArticleModel(
                         id: $0.id,
                      title: $0.title,
                      summary: $0.summary ?? "Sem Descrição para mostrar",
