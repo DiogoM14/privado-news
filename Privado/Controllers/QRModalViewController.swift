@@ -6,12 +6,12 @@ class QRModalViewController: UIViewController {
     
     static let identifier = "QRCodeModal"
     var articleURL: String!
-    
-    let url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
+    let url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
+    var somethingWidthConstraint: NSLayoutConstraint? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.blue.withAlphaComponent(0)
         
         let test = URL(string: url + articleURL)
         
