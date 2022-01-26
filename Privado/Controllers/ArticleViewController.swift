@@ -35,10 +35,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
-    
-        CacheController.shared.getArticlesByCache()
 
-        APIFetch.shared.getTopNews { [weak self] articles in
+        CacheController.shared.getArticlesByCache { [weak self] articles in
             self?.articles = articles
             self?.viewModels = articles.compactMap({
                ArticleModel(
@@ -76,7 +74,23 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
-        CacheController.shared.getArticlesByCache()
+        CacheController.shared.getArticlesByCache { [weak self] articles in
+            self?.articles = articles
+            self?.viewModels = articles.compactMap({
+               ArticleModel(
+                id: $0.id,
+                title: $0.title,
+                summary: $0.summary ?? "Sem Descrição para mostrar",
+                imageURL: URL(string: $0.imageUrl ?? ""),
+                newsSite: $0.newsSite ?? "Sem autor",
+                publishedAt: $0.publishedAt ?? ""
+               )
+            })
+
+            DispatchQueue.main.async {
+               self?.tableView.reloadData()
+            }
+       }
 
         self.tableView.refreshControl?.endRefreshing()
     }

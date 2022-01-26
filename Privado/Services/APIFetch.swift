@@ -11,8 +11,6 @@ final class APIFetch {
         static let issDiarySearch = URL(string: "https://api.spaceflightnewsapi.net/v3/reports?summary_contains=")
         
         static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?summary_contains="
-        
-        static let articleById = "https://api.spaceflightnewsapi.net/v3/articles/"
     }
     
     private init() {}
@@ -81,7 +79,6 @@ final class APIFetch {
                 do {
                     let result = try JSONDecoder().decode([Article].self, from: data)
                     
-                    
                     completion(.success(result))
                 }
                 catch {
@@ -109,7 +106,6 @@ final class APIFetch {
             else if let data = data {
                 do {
                     let result = try JSONDecoder().decode([Article].self, from: data)
-                    
                     
                     completion(.success(result))
                 }
