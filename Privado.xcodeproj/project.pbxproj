@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B74D4512799EE2000072182 /* CacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D4502799EE2000072182 /* CacheController.swift */; };
-		3B74D45327A089CE00072182 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45227A089CE00072182 /* ArticleService.swift */; };
+		3B74D45527A1B95D00072182 /* QRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45427A1B95D00072182 /* QRCodeController.swift */; };
+		3B74D45827A1C1FA00072182 /* QRModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45727A1C1FA00072182 /* QRModalViewController.swift */; };
 		3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE09278E13BC00243F41 /* DetailViewController.swift */; };
 		3B7FCE10278E3AC800243F41 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */; };
 		3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AEBCF2768FCF100409124 /* AppDelegate.swift */; };
@@ -53,7 +54,8 @@
 
 /* Begin PBXFileReference section */
 		3B74D4502799EE2000072182 /* CacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheController.swift; sourceTree = "<group>"; };
-		3B74D45227A089CE00072182 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
+		3B74D45427A1B95D00072182 /* QRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeController.swift; sourceTree = "<group>"; };
+		3B74D45727A1C1FA00072182 /* QRModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModalViewController.swift; sourceTree = "<group>"; };
 		3B7FCE09278E13BC00243F41 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		3B8AEBCC2768FCF100409124 /* Privado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Privado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				3BB0EFF3276D6B8B001B4CEF /* APIFetch.swift */,
-				3B74D45227A089CE00072182 /* ArticleService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -128,6 +129,8 @@
 				3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */,
 				3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */,
 				3B74D4502799EE2000072182 /* CacheController.swift */,
+				3B74D45427A1B95D00072182 /* QRCodeController.swift */,
+				3B74D45727A1C1FA00072182 /* QRModalViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -344,12 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B74D45827A1C1FA00072182 /* QRModalViewController.swift in Sources */,
 				3BC4092D27945ABD00FDEC1B /* LoginViewController.swift in Sources */,
 				3B8AEBD42768FCF100409124 /* ArticleViewController.swift in Sources */,
 				3BC40920279305B400FDEC1B /* CommentsModalViewController.swift in Sources */,
 				3B96F5912791DAD7001C5991 /* SettingsViewController.swift in Sources */,
 				3B74D4512799EE2000072182 /* CacheController.swift in Sources */,
-				3B74D45327A089CE00072182 /* ArticleService.swift in Sources */,
 				3B96F58F2791DAC6001C5991 /* RelatedViewController.swift in Sources */,
 				3B8AEBDA2768FCF100409124 /* Privado.xcdatamodeld in Sources */,
 				3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */,
@@ -359,6 +362,7 @@
 				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
 				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
 				3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */,
+				3B74D45527A1B95D00072182 /* QRCodeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

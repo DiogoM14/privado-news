@@ -11,7 +11,7 @@ class CacheController {
             self?.cache.setObject(articles as NSArray, forKey: "Articles")
            
            DispatchQueue.main.async {
-               print("VIM DO SET")
+//               print("VIM DO SET")
                completion(self?.cache.object(forKey: "Articles") as! [Article])
            }
        }
@@ -23,13 +23,13 @@ class CacheController {
                 completion(article)
             }
         } else {
-            print("VIM DO GET")
+//            print("VIM DO GET")
             let cachedArticles = self.cache.object(forKey: "Articles") as! [Article]
             completion(self.cache.object(forKey: "Articles") as! [Article])
             
             self.setArticlesToCache { article in
                 if article[0].id > cachedArticles[0].id {
-                    print("VIM DO GET < CACHE")
+//                    print("VIM DO GET < CACHE")
                     completion(article)
                 }
             }

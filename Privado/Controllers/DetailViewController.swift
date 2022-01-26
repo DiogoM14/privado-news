@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
         detailTextView.layer.borderColor = borderColor.cgColor
         detailTextView.layer.cornerRadius = 5.0
         
-        let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
+        let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(openQRCodeModal))
         navigationItem.rightBarButtonItem = button
         
         let docId = String(article!.id)
@@ -84,31 +84,42 @@ class DetailViewController: UIViewController {
         self.detailPublishedAt.resignFirstResponder()
     }
 
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            hideKeyboard()
-        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hideKeyboard()
+    }
     
     func registerForKeyboardNotifications() {
-            NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillHideNotification, object: nil)
 
-            NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillShowNotification, object: nil)
 
-            NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-         }
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+     }
 
 
-        @objc func keyboardWillChange(_ notification: NSNotification) {
-            guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
-                return
-            }
-
-            if notification.name == UIResponder.keyboardWillShowNotification ||
-                notification.name == UIResponder.keyboardWillChangeFrameNotification{
-
-                view.frame.origin.y = -keyboardRect.height
-            }else {
-                view.frame.origin.y = 0
-            }
-
+    @objc func keyboardWillChange(_ notification: NSNotification) {
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
+            return
         }
+
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+        notification.name == UIResponder.keyboardWillChangeFrameNotification {
+
+            view.frame.origin.y = -keyboardRect.height
+        } else {
+            view.frame.origin.y = 0
+        }
+
+    }
+    
+    @objc func openQRCodeModal() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "QRCodeModal") as? QRModalViewController
+        else {
+            return
+        }
+        
+        vc.articleURL = article?.url ?? ""
+        
+        navigationController?.present(vc, animated: true)
+    }
 }

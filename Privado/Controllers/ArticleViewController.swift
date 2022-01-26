@@ -139,11 +139,11 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self?.viewModels = articles.compactMap({
                     ArticleModel(
                         id: $0.id,
-                     title: $0.title,
-                     summary: $0.summary ?? "Sem Descrição para mostrar",
-                     imageURL: URL(string: $0.imageUrl ?? ""),
-                     newsSite: $0.newsSite ?? "",
-                     publishedAt: $0.publishedAt ?? ""
+                        title: $0.title,
+                        summary: $0.summary ?? "Sem Descrição para mostrar",
+                        imageURL: URL(string: $0.imageUrl ?? ""),
+                        newsSite: $0.newsSite ?? "",
+                        publishedAt: $0.publishedAt ?? ""
                     )
                 })
                 
@@ -156,5 +156,4 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-
 }
