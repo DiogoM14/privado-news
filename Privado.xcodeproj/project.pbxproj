@@ -33,6 +33,7 @@
 		3BC4092B2793B3A300FDEC1B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC4092A2793B3A300FDEC1B /* FirebaseFirestore */; };
 		3BC4092D27945ABD00FDEC1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */; };
 		3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */; };
+		3BFC2F1D27A44B6B002484BE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2F1C27A44B6B002484BE /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		3BC409232793B25D00FDEC1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
+		3BFC2F1C27A44B6B002484BE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				3B74D4502799EE2000072182 /* CacheController.swift */,
 				3B74D45427A1B95D00072182 /* QRScannerController.swift */,
 				3B74D45727A1C1FA00072182 /* QRModalViewController.swift */,
+				3BFC2F1C27A44B6B002484BE /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				3B7FCE10278E3AC800243F41 /* ArticleModel.swift in Sources */,
 				3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */,
 				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
+				3BFC2F1D27A44B6B002484BE /* RegisterViewController.swift in Sources */,
 				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
 				3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */,
 				3B74D45527A1B95D00072182 /* QRScannerController.swift in Sources */,

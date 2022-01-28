@@ -12,7 +12,6 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
     let db = Firestore.firestore()
     var docId: String!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,15 +19,12 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
         
         db.collection("comments").document(docId).collection("comment").getDocuments() {
             (querySnapshot, err) in
-                if let err = err {
+            if err != nil {
                     print("Error getting documents: (err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        var teste = String(describing: document.get("comment")!)
-                        print(teste)
-                        self.tableViewData.append(teste)
-                        print(self.tableViewData)
-                        
+
+                        self.tableViewData.append(String(describing: document.get("comment")!))
                 }
                             
                     DispatchQueue.main.async {
@@ -37,24 +33,6 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
                     }
                 }
         }
-            
-//        db.collection("comments").document(docId).collection("comment")
-//            .addSnapshotListener { documentSnapshot, error in
-//                guard let document = documentSnapshot else {
-//                    print("Error fetching document: \(error!)")
-//                    return
-//                }
-//                for document in querySnapshot!.documents {
-//                       print("\(document.documentID) => \(document.data()) ====", document.get("comentario") as! String)
-//               }
-//
-//                self.tableViewData = String(describing: document.get("comment") ?? "0")
-//                print(self.tableViewData)
-//
-//                DispatchQueue.main.async {
-//                   self.tableView.reloadData()
-//                }
-//            }
         
         tableView.dataSource = self
     }
