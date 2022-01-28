@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B74D4512799EE2000072182 /* CacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D4502799EE2000072182 /* CacheController.swift */; };
-		3B74D45527A1B95D00072182 /* QRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45427A1B95D00072182 /* QRCodeController.swift */; };
+		3B74D45527A1B95D00072182 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45427A1B95D00072182 /* QRScannerController.swift */; };
 		3B74D45827A1C1FA00072182 /* QRModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45727A1C1FA00072182 /* QRModalViewController.swift */; };
 		3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE09278E13BC00243F41 /* DetailViewController.swift */; };
 		3B7FCE10278E3AC800243F41 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */; };
@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3B74D4502799EE2000072182 /* CacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheController.swift; sourceTree = "<group>"; };
-		3B74D45427A1B95D00072182 /* QRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeController.swift; sourceTree = "<group>"; };
+		3B74D45427A1B95D00072182 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		3B74D45727A1C1FA00072182 /* QRModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModalViewController.swift; sourceTree = "<group>"; };
 		3B7FCE09278E13BC00243F41 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */,
 				3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */,
 				3B74D4502799EE2000072182 /* CacheController.swift */,
-				3B74D45427A1B95D00072182 /* QRCodeController.swift */,
+				3B74D45427A1B95D00072182 /* QRScannerController.swift */,
 				3B74D45727A1C1FA00072182 /* QRModalViewController.swift */,
 			);
 			path = Controllers;
@@ -362,7 +362,7 @@
 				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
 				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
 				3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */,
-				3B74D45527A1B95D00072182 /* QRCodeController.swift in Sources */,
+				3B74D45527A1B95D00072182 /* QRScannerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

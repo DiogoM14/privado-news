@@ -25,8 +25,5 @@ class QRModalViewController: UIViewController {
                 self?.qrCodeImage.image = UIImage(data: data)
             }
         }.resume()
-        
     }
-    
-    
 }

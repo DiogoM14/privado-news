@@ -24,8 +24,9 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
-        APIFetch.shared.getIssDiary { [weak self] result in
-           self?.viewModels = result.compactMap({
+        APIFetch.shared.getIssDiary { [weak self] articles in
+            self?.articles = articles
+            self?.viewModels = articles.compactMap({
                ArticleModel(
                 id: $0.id,
                 title: $0.title,
@@ -34,7 +35,7 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
                 newsSite: $0.newsSite ?? "Sem autor",
                 publishedAt: $0.publishedAt ?? ""
                )
-           })
+            })
            
            DispatchQueue.main.async {
                self?.tableView.reloadData()

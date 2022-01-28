@@ -10,6 +10,9 @@ class DetailViewController: UIViewController {
     @IBOutlet var detailDownVote: UIButton!
     @IBOutlet var detailLikes: UILabel!
     @IBOutlet var detailTextView: UITextView!
+    @IBOutlet var submitComment: UIButton!
+    @IBOutlet var seeMoreComments: UIButton!
+    
 
     static let identifier = "DetailViewController"
     var article: Article?
@@ -17,7 +20,6 @@ class DetailViewController: UIViewController {
     
     var ref: DocumentReference? = nil
     let db = Firestore.firestore()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,8 @@ class DetailViewController: UIViewController {
         
         let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(openQRCodeModal))
         navigationItem.rightBarButtonItem = button
+        
+//        submitComment.addTarget(self, action: #selector(seeMoreComments), for: .touchUpInside)
         
         let docId = String(article!.id)
         
@@ -77,6 +81,16 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func submitComment(_ sender: UIButton) {
+        let docId = String(article!.id)
+        
+        db.collection("comments").document(docId).collection("comment").addDocument(data: [
+            "comment": detailTextView.text,
+            "id": 123,
+            "timestamp": FieldValue.serverTimestamp()
+        ])
+    }
+    
     func hideKeyboard() {
         self.detailImage.resignFirstResponder()
         self.detailTitle.resignFirstResponder()
@@ -119,6 +133,19 @@ class DetailViewController: UIViewController {
         }
         
         vc.articleURL = article?.url ?? ""
+        
+        navigationController?.present(vc, animated: true)
+    }
+    
+    @IBAction func seeMoreComments(_ sender: UIButton) {
+        let docId = String(article!.id)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "CommentsModalViewController") as? CommentsModalViewController
+        else {
+            return
+        }
+        
+        vc.docId = docId
         
         navigationController?.present(vc, animated: true)
     }
