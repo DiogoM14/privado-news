@@ -85,8 +85,8 @@ class DetailViewController: UIViewController {
         let docId = String(article!.id)
         
         db.collection("comments").document(docId).collection("comment").addDocument(data: [
-            "comment": detailTextView.text,
-            "id": 123,
+            "comment": String(detailTextView.text),
+            "username": String(Auth.auth().currentUser?.displayName ?? ""),
             "timestamp": FieldValue.serverTimestamp()
         ])
     }

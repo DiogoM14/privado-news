@@ -346,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phZ-ee-xhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6498.3644859813085" y="-676.45788336933049"/>
+            <point key="canvasLocation" x="7351" y="-676"/>
         </scene>
         <!--Comments Modal View Controller-->
         <scene sceneID="mjh-oU-YaK">
@@ -688,11 +688,34 @@
                                     <action selector="handleLogin:" destination="rVu-W2-gFT" eventType="touchUpInside" id="kLf-tJ-Q1Q"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCv-wz-ZHW">
+                                <rect key="frame" x="16" y="560" width="293" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you forget your password? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZb-As-pdf">
+                                        <rect key="frame" x="0.0" y="0.0" width="200.66666666666666" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiO-Dg-7aF">
+                                        <rect key="frame" x="200.66666666666666" y="0.0" width="92.333333333333343" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Click here."/>
+                                        <connections>
+                                            <action selector="recoverPassword:" destination="rVu-W2-gFT" eventType="touchUpInside" id="VxB-La-MeN"/>
+                                            <segue destination="2Zj-J5-DZC" kind="popoverPresentation" popoverAnchorView="aiO-Dg-7aF" id="eKd-6H-Aup">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gCg-HV-kxW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eMQ-Oc-H0c" firstAttribute="top" secondItem="S8T-BP-AKS" secondAttribute="bottom" constant="8" id="43b-J6-eGB"/>
+                            <constraint firstItem="YCv-wz-ZHW" firstAttribute="top" secondItem="eMQ-Oc-H0c" secondAttribute="bottom" constant="8" id="57F-g7-pJ4"/>
                             <constraint firstItem="7AH-DW-MtP" firstAttribute="leading" secondItem="gCg-HV-kxW" secondAttribute="leading" constant="16" id="76P-Z9-S5B"/>
                             <constraint firstItem="S8T-BP-AKS" firstAttribute="centerY" secondItem="B4q-ng-6iC" secondAttribute="centerY" id="A6U-8f-nqG"/>
                             <constraint firstItem="gCg-HV-kxW" firstAttribute="trailing" secondItem="e1d-Ft-nVs" secondAttribute="trailing" constant="16" id="AtO-Cz-GwO"/>
@@ -703,6 +726,7 @@
                             <constraint firstItem="gCg-HV-kxW" firstAttribute="trailing" secondItem="EvU-TR-bIl" secondAttribute="trailing" constant="16" id="W0u-02-bRB"/>
                             <constraint firstItem="gCg-HV-kxW" firstAttribute="bottom" secondItem="EvU-TR-bIl" secondAttribute="bottom" constant="20" id="W3D-io-dNo"/>
                             <constraint firstItem="EvU-TR-bIl" firstAttribute="top" secondItem="Fb0-lW-dTB" secondAttribute="bottom" constant="8" id="ca8-DP-e44"/>
+                            <constraint firstItem="YCv-wz-ZHW" firstAttribute="leading" secondItem="gCg-HV-kxW" secondAttribute="leading" constant="16" id="cye-L3-JgW"/>
                             <constraint firstItem="S8T-BP-AKS" firstAttribute="leading" secondItem="gCg-HV-kxW" secondAttribute="leading" constant="16" id="gLh-a1-cO7"/>
                             <constraint firstItem="gCg-HV-kxW" firstAttribute="trailing" secondItem="S8T-BP-AKS" secondAttribute="trailing" constant="16" id="gYA-BM-hGQ"/>
                             <constraint firstItem="86w-MG-9p5" firstAttribute="top" secondItem="e1d-Ft-nVs" secondAttribute="bottom" id="glM-UR-XNK"/>
@@ -901,20 +925,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cf7-v3-k5H"/>
                     <connections>
-                        <outlet property="emailInput" destination="IAz-ud-rre" id="k24-tX-GFC"/>
-                        <outlet property="passwordInput" destination="LvD-mW-geJ" id="zpj-Gj-yPd"/>
+                        <outlet property="emailInput" destination="IAz-ud-rre" id="ZRT-wq-XTY"/>
+                        <outlet property="fistnameInput" destination="N7Z-az-Sif" id="jkw-xg-xkx"/>
+                        <outlet property="lastnameInput" destination="u9d-hX-Rr9" id="I1k-uo-pN8"/>
+                        <outlet property="passwordInput" destination="LvD-mW-geJ" id="S1R-Yl-Oll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaD-4x-ALn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2195.3271028037384" y="-8.4233261339092884"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Bottom Tab Controller-->
         <scene sceneID="I9n-5I-Nyv">
             <objects>
-                <tabBarController storyboardIdentifier="MainPage" automaticallyAdjustsScrollViewInsets="NO" id="8UZ-mD-762" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainPage" automaticallyAdjustsScrollViewInsets="NO" id="8UZ-mD-762" customClass="MainBottomTabController" customModule="Privado" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="hAk-VE-OH3"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WXy-Wh-dto">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1017,6 +1042,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Coq-V2-TSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152.803738317757" y="-8.4233261339092884"/>
+        </scene>
+        <!--Recover Password View Controller-->
+        <scene sceneID="IkG-qa-T1d">
+            <objects>
+                <viewController storyboardIdentifier="RecoverPasswordViewController" id="2Zj-J5-DZC" customClass="RecoverPasswordViewController" customModule="Privado" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="bottom" id="rdr-6e-lQM">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y65-rJ-UcY">
+                                <rect key="frame" x="0.0" y="400" width="428" height="400"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your e-mail adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLP-8R-trW">
+                                        <rect key="frame" x="0.0" y="24" width="428" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4he-EM-c9G">
+                                        <rect key="frame" x="16" y="90" width="396" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="y0X-mX-yog"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkZ-qd-7yy">
+                                        <rect key="frame" x="16" y="160" width="396" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="HIl-8g-keu"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Recover"/>
+                                        <connections>
+                                            <action selector="resetPassword:" destination="2Zj-J5-DZC" eventType="touchUpInside" id="Aoo-ZJ-pBK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4he-EM-c9G" secondAttribute="trailing" constant="16" id="6xf-D2-QjG"/>
+                                    <constraint firstItem="oLP-8R-trW" firstAttribute="leading" secondItem="y65-rJ-UcY" secondAttribute="leading" id="B2M-dC-cbs"/>
+                                    <constraint firstItem="NkZ-qd-7yy" firstAttribute="leading" secondItem="y65-rJ-UcY" secondAttribute="leading" constant="16" id="Cl4-8D-gET"/>
+                                    <constraint firstAttribute="trailing" secondItem="NkZ-qd-7yy" secondAttribute="trailing" constant="16" id="ErL-PD-rkg"/>
+                                    <constraint firstItem="NkZ-qd-7yy" firstAttribute="top" secondItem="4he-EM-c9G" secondAttribute="bottom" constant="16" id="GZV-wF-m3Z"/>
+                                    <constraint firstItem="oLP-8R-trW" firstAttribute="top" secondItem="y65-rJ-UcY" secondAttribute="top" constant="24" id="KMo-Hb-QUb"/>
+                                    <constraint firstItem="4he-EM-c9G" firstAttribute="top" secondItem="oLP-8R-trW" secondAttribute="bottom" constant="42" id="Xl8-n7-6Lx"/>
+                                    <constraint firstAttribute="trailing" secondItem="oLP-8R-trW" secondAttribute="trailing" id="bJx-dw-Clb"/>
+                                    <constraint firstItem="4he-EM-c9G" firstAttribute="leading" secondItem="y65-rJ-UcY" secondAttribute="leading" constant="16" id="cLC-ew-R8A"/>
+                                    <constraint firstAttribute="height" constant="400" id="fIg-KW-eao"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mBG-hN-Cl7"/>
+                        <constraints>
+                            <constraint firstItem="y65-rJ-UcY" firstAttribute="top" secondItem="mBG-hN-Cl7" secondAttribute="top" constant="400" id="eCm-gD-9sZ"/>
+                            <constraint firstItem="mBG-hN-Cl7" firstAttribute="trailing" secondItem="y65-rJ-UcY" secondAttribute="trailing" id="kqe-G4-WUM"/>
+                            <constraint firstItem="y65-rJ-UcY" firstAttribute="leading" secondItem="mBG-hN-Cl7" secondAttribute="leading" id="n0K-yR-fgF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordInput" destination="4he-EM-c9G" id="6if-jU-hTT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypn-SM-DU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="724"/>
         </scene>
     </scenes>
     <resources>
