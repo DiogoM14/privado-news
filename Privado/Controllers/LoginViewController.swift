@@ -7,6 +7,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    let defaults = UserDefaults.standard
+    
     static let identifier = "LoginViewController"
     
     override func viewDidLoad() {
@@ -17,6 +19,25 @@ class LoginViewController: UIViewController {
         registerBtn.layer.borderColor = borderColor.cgColor
         registerBtn.layer.cornerRadius = 5.0
         
+        if defaults.bool(forKey: "First Launch") == false {
+            let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcommingPage")
+                present(view, animated: true, completion: nil)
+            
+            defaults.set(true, forKey: "First Launch")
+        }
+        
+        if Auth.auth().currentUser != nil {
+            navigateToMainPage()
+        }
+    }
+    
+    func navigateToMainPage() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage") as? MainBottomTabController
+        else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showAlert(title: String, message: String){
@@ -29,21 +50,22 @@ class LoginViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    @IBAction func recoverPassword(_ sender: Any) {
-        
-    }
-    
     @IBAction func handleLogin(_ sender: Any) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
             
             if error == nil {
-                guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "MainPage") as? MainBottomTabController
-                else {
-                    return
+                self?.navigateToMainPage()
+            } else {
+                let errCode = AuthErrorCode(rawValue: error!._code)
+                switch errCode {
+                case .invalidCredential:
+                    self?.showAlert(title: "Invalid credentials", message: "Email or password wrong, try again")
+                case .invalidEmail:
+                    self?.showAlert(title: "Invalid Email", message: "Retry with a new email address")
+                default:
+                    self?.showAlert(title: "Something went wrong", message: "Try again")
                 }
-                
-                self?.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

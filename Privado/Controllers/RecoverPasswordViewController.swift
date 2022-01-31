@@ -3,14 +3,14 @@ import UIKit
 import Firebase
 
 class RecoverPasswordViewController: UIViewController {
-    @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func resetPassword(_ sender: Any) {
-        Auth.auth().sendPasswordReset(withEmail: passwordInput.text!) { error in
+    @IBAction func handleRecoverPassword(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: textField.text!) { error in
             print(error)
         }
     }

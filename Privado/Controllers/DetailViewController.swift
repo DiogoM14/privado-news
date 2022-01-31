@@ -54,7 +54,7 @@ class DetailViewController: UIViewController {
         detailImage.image = UIImage(data: image!)
         detailTitle.text = article?.title
         detailSummary.text = article?.summary
-        detailPublishedAt.text = article?.publishedAt
+        detailPublishedAt.text = convertDateFormater(article?.publishedAt)
     }
     
     @IBAction func upLikes(_ sender: Any) {
@@ -89,6 +89,20 @@ class DetailViewController: UIViewController {
             "username": String(Auth.auth().currentUser?.displayName ?? ""),
             "timestamp": FieldValue.serverTimestamp()
         ])
+    }
+    
+    func convertDateFormater(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .init(identifier: "en_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
     }
     
     func hideKeyboard() {

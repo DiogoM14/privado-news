@@ -97,19 +97,25 @@ class ArticlesTableViewCell: UITableViewCell {
         newsPublishedAt.text = nil
     }
     
+    func convertDateFormater(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .init(identifier: "en_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
+    }
+    
     func configure(with viewModel : ArticleModel ){
         newsTitleLabel.text = viewModel.title
         newsSiteLabel.text = viewModel.newsSite
-        
-        let RFC3339DateFormatter = DateFormatter()
-        RFC3339DateFormatter.locale = Locale(identifier: "pt_BR")
-        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-         
-        let date = RFC3339DateFormatter.date(from: viewModel.publishedAt)
-        
-        let test = String(describing: date!)
-        newsPublishedAt.text = test
+
+        newsPublishedAt.text = convertDateFormater(viewModel.publishedAt)
         //        newsPublishedAt.text = "1d"
         
         //Image

@@ -15,7 +15,6 @@ class QRModalViewController: UIViewController {
         
         let test = URL(string: url + articleURL)
         
-        
         URLSession.shared.dataTask(with: test!) { [weak self] data, _, error in
             guard let data = data, error == nil else{
                 return

@@ -13,19 +13,9 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     private let searchVC = UISearchController(searchResultsController: nil)
     private var viewModels = [ArticleModel]()
     private var articles = [Article]()
-    let defaults = UserDefaults.standard
-    let myQueue = DispatchQueue.global()
-    let myGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if defaults.bool(forKey: "First Launch") == false {
-            let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcommingPage")
-                present(view, animated: true, completion: nil)
-            
-            defaults.set(true, forKey: "First Launch")
-        }
         
         title = "Home"
         view.addSubview(tableView)
