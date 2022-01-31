@@ -15,7 +15,7 @@
 		3B0F6B5527A5A3980093233C /* MainBottomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F6B5427A5A3980093233C /* MainBottomTabController.swift */; };
 		3B0F6B5727A5BC280093233C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F6B5627A5BC280093233C /* RecoverPasswordViewController.swift */; };
 		3B74D4512799EE2000072182 /* CacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D4502799EE2000072182 /* CacheController.swift */; };
-		3B74D45527A1B95D00072182 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45427A1B95D00072182 /* QRScannerController.swift */; };
+		3B74D45527A1B95D00072182 /* RecentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45427A1B95D00072182 /* RecentsViewController.swift */; };
 		3B74D45827A1C1FA00072182 /* QRModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74D45727A1C1FA00072182 /* QRModalViewController.swift */; };
 		3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE09278E13BC00243F41 /* DetailViewController.swift */; };
 		3B7FCE10278E3AC800243F41 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */; };
@@ -70,7 +70,7 @@
 		3B0F6B5427A5A3980093233C /* MainBottomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomTabController.swift; sourceTree = "<group>"; };
 		3B0F6B5627A5BC280093233C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		3B74D4502799EE2000072182 /* CacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheController.swift; sourceTree = "<group>"; };
-		3B74D45427A1B95D00072182 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		3B74D45427A1B95D00072182 /* RecentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController.swift; sourceTree = "<group>"; };
 		3B74D45727A1C1FA00072182 /* QRModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModalViewController.swift; sourceTree = "<group>"; };
 		3B7FCE09278E13BC00243F41 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3B7FCE0F278E3AC800243F41 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				3B96F5902791DAD7001C5991 /* SettingsViewController.swift */,
 				3BC4092127930CFD00FDEC1B /* WelcommingViewController.swift */,
 				3B74D4502799EE2000072182 /* CacheController.swift */,
-				3B74D45427A1B95D00072182 /* QRScannerController.swift */,
+				3B74D45427A1B95D00072182 /* RecentsViewController.swift */,
 				3B74D45727A1C1FA00072182 /* QRModalViewController.swift */,
 				3B0F0DFF27A81D9800DB2C35 /* NotificationController.swift */,
 			);
@@ -422,7 +422,7 @@
 				3B8AEBD22768FCF100409124 /* SceneDelegate.swift in Sources */,
 				3B7FCE0A278E13BC00243F41 /* DetailViewController.swift in Sources */,
 				3B0F6B5727A5BC280093233C /* RecoverPasswordViewController.swift in Sources */,
-				3B74D45527A1B95D00072182 /* QRScannerController.swift in Sources */,
+				3B74D45527A1B95D00072182 /* RecentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

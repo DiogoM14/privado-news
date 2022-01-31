@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         detailTextView.layer.borderColor = borderColor.cgColor
         detailTextView.layer.cornerRadius = 5.0
         
-        let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(openQRCodeModal))
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareArticle))
         navigationItem.rightBarButtonItem = button
         
         let docId = String(article!.id)
@@ -177,15 +177,30 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @objc func openQRCodeModal() {
+    @IBAction func openQRCodeModal(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "QRCodeModal") as? QRModalViewController
         else {
             return
         }
-        
+
         vc.articleURL = article?.url ?? ""
-        
+
         navigationController?.present(vc, animated: true)
+    }
+    
+    @objc func shareArticle() {
+        guard let image = UIImage(systemName: "bell"), let url = URL(string: (article?.url)!) else {
+                    return
+                }
+                let shareSheetvc = UIActivityViewController(
+                    activityItems: [
+                        image,
+                        url
+                    ],
+                    applicationActivities: nil
+                )
+
+                present(shareSheetvc, animated: true)
     }
     
     @IBAction func seeMoreComments(_ sender: UIButton) {

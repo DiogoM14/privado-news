@@ -25,7 +25,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
         
-        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(notification))
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(notification))
         navigationItem.rightBarButtonItem = button
         
         tableView.refreshControl = UIRefreshControl()

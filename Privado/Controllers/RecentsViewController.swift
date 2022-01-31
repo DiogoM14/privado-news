@@ -1,7 +1,7 @@
 import UIKit
-import AVFoundation
+import Firebase
 
-class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class RecentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
