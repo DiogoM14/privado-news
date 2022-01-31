@@ -11,6 +11,8 @@ final class APIFetch {
         static let issDiarySearch = URL(string: "https://api.spaceflightnewsapi.net/v3/reports?summary_contains=")
         
         static let searchUrlString = "https://api.spaceflightnewsapi.net/v3/articles?summary_contains="
+        
+        static let articleById = "https://api.spaceflightnewsapi.net/v3/articles/"
     }
     
     private init() {}
@@ -111,6 +113,33 @@ final class APIFetch {
                 }
                 catch {
                     completion(.failure(error))
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    public func getArticleById(with id: String, completion: @escaping (_ article: Article) -> ()) {
+        guard !id.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        
+        let urlString = Constants.articleById + id
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in    // Task thats fetching the url -> data is the response
+            if let data = data {    // If data exists
+                do {
+                    let result = try JSONDecoder().decode(Article.self, from: data)   // Converts to JSON
+                    
+                    DispatchQueue.main.async {  //  Aysnc response with the main thread
+                        completion(result)  // Completion is a promise
+                    }
+                }
+                catch {
+                    print(error)
                 }
             }
         }

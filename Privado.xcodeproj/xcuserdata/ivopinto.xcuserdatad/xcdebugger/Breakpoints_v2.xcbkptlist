@@ -144,5 +144,85 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CBB210E-1BFD-45AF-A3E3-6878D395553A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Privado/Services/APIFetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "getArticleById(with:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6CBB210E-1BFD-45AF-A3E3-6878D395553A - d6ce33c5cfcc052"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.APIFetch.getArticleById(with: Swift.String, completion: (Swift.Array&lt;Privado.Article&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Services/APIFetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "6CBB210E-1BFD-45AF-A3E3-6878D395553A - d6ce33c5cfcc052"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Privado.APIFetch.getArticleById(with: Swift.String, completion: (Swift.Array&lt;Privado.Article&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Privado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogomartins/Documents/www/progress/college/pwm/Privado/Privado/Services/APIFetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06118A45-8641-4E29-A1CB-0ACFAF0481CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Privado/Services/APIFetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "getArticleById(with:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F00D10F-12FD-4770-8F30-C9FE08A56898"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Privado/Services/APIFetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "getArticleById(with:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

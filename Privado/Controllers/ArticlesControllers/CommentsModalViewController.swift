@@ -25,13 +25,19 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
                 for document in querySnapshot!.documents {
                     
                     // Converts the firebase date
-                    let data = document.get("timestamp") as! Timestamp
-                    let date = data.dateValue()
+                    let date = (document.get("timestamp") as! Timestamp).dateValue()
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = .init(identifier: "en_POSIX")
+                    dateFormatter.dateFormat = "EEEE, MMM d"
+                    
+                    let dateFormated = dateFormatter.string(from: date)
+                            
 
                     self.tableViewData.append(CommentModel(
                         comment: String(describing: document.get("comment") ?? ""),
                         username: String(describing: document.get("username") ?? ""),
-                        timestamp: String(describing: date)
+                        timestamp: String(describing: dateFormated)
                     ))
                 }
                         

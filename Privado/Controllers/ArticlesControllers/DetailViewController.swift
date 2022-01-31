@@ -189,18 +189,18 @@ class DetailViewController: UIViewController {
     }
     
     @objc func shareArticle() {
-        guard let image = UIImage(systemName: "bell"), let url = URL(string: (article?.url)!) else {
-                    return
-                }
-                let shareSheetvc = UIActivityViewController(
-                    activityItems: [
-                        image,
-                        url
-                    ],
-                    applicationActivities: nil
-                )
+        guard let image = image, let url = URL(string: (article?.url)!) else {
+            return
+        }
+        let shareSheetvc = UIActivityViewController(
+            activityItems: [
+                image,
+                url
+            ],
+            applicationActivities: nil
+        )
 
-                present(shareSheetvc, animated: true)
+        present(shareSheetvc, animated: true)
     }
     
     @IBAction func seeMoreComments(_ sender: UIButton) {
