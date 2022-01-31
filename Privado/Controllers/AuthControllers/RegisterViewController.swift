@@ -30,7 +30,7 @@ class RegisterViewController: UIViewController {
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = self.fistnameInput.text!
                 changeRequest?.commitChanges { error in
-                  // ...
+                  print("Something happened with the sign up")
                 }
                 
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessfullyRegisteredViewController") as? SuccessfullyRegisteredViewController

@@ -11,7 +11,7 @@ class RecoverPasswordViewController: UIViewController {
     
     @IBAction func handleRecoverPassword(_ sender: Any) {
         Auth.auth().sendPasswordReset(withEmail: textField.text!) { error in
-            print(error)
+            print(error ?? "Something happened recovering the password.")
         }
     }
 }

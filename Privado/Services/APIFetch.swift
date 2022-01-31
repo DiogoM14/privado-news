@@ -1,7 +1,7 @@
 import Foundation
 
 final class APIFetch {
-    static let shared = APIFetch()
+    static let shared = APIFetch()  // Used to become those next functions accessible throughout the app
 
     struct Constants {
         static let toHeadlinesURL = URL(string: "https://api.spaceflightnewsapi.net/v3/articles")
@@ -15,19 +15,19 @@ final class APIFetch {
     
     private init() {}
     
-    public func getTopNews(completion: @escaping (_ article: [Article]) -> ()) {
+    public func getTopNews(completion: @escaping (_ article: [Article]) -> ()) {    // Fetch of Home page's articles and return an Article as callback
         
-        guard let url = Constants.toHeadlinesURL else {
+        guard let url = Constants.toHeadlinesURL else { // Get api url from the var
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            if let data = data {
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in    // Task thats fetching the url -> data is the response
+            if let data = data {    // If data exists
                 do {
-                    let result = try JSONDecoder().decode([Article].self, from: data)
+                    let result = try JSONDecoder().decode([Article].self, from: data)   // Converts to JSON
                     
-                    DispatchQueue.main.async {
-                        completion(result)
+                    DispatchQueue.main.async {  //  Aysnc response with the main thread
+                        completion(result)  // Completion is a promise
                     }
                 }
                 catch {
@@ -118,7 +118,7 @@ final class APIFetch {
     }
 }
 
-// Modules
+// Models
 struct APIResponse: Codable {
     let articles: [Article]
 }

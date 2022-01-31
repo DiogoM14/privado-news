@@ -1,7 +1,9 @@
 import UIKit
 import SafariServices
+import Firebase
+import UserNotifications
 
-class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     private let tableView: UITableView = {
         let table = UITableView()
         
@@ -9,22 +11,27 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
         return table
     }()
     
+    private let searchVC = UISearchController(searchResultsController: nil)
     private var viewModels = [ArticleModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "ISS"
+        title = "Home"
+        
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
         
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(notification))
+        navigationItem.rightBarButtonItem = button
+        
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
-        
-        APIFetch.shared.getIssDiary { [weak self] articles in
+
+        CacheController.shared.getArticlesByCache { [weak self] articles in
             self?.articles = articles
             self?.viewModels = articles.compactMap({
                ArticleModel(
@@ -36,11 +43,18 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
                 publishedAt: $0.publishedAt ?? ""
                )
             })
-           
-           DispatchQueue.main.async {
+
+            DispatchQueue.main.async {
                self?.tableView.reloadData()
-           }
+            }
        }
+        
+        createSearchBar()
+    }
+    
+    private func createSearchBar(){
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,15 +62,42 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.frame = view.bounds
     }
     
-    
     //Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
     
+    @objc func notification() {
+        // Create the notification content
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "Check the latest new."
+        content.body = "There are a new article. Read it now"
+        
+        // Set the time to trigger the notification
+        let date = Date().addingTimeInterval(10)
+        
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        // Request a notification
+        let uuidString = UUID().uuidString
+        
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        
+        // Send the notification
+        center.add(request) { (error) in
+            if error != nil {
+                print("Someting happened sendding a notification")
+            }
+        }
+    }
+    
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
-        APIFetch.shared.getIssDiary { [weak self] result in
-           self?.viewModels = result.compactMap({
+        CacheController.shared.getArticlesByCache { [weak self] articles in
+            self?.articles = articles
+            self?.viewModels = articles.compactMap({
                ArticleModel(
                 id: $0.id,
                 title: $0.title,
@@ -65,13 +106,13 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
                 newsSite: $0.newsSite ?? "Sem autor",
                 publishedAt: $0.publishedAt ?? ""
                )
-           })
-           
-           DispatchQueue.main.async {
+            })
+
+            DispatchQueue.main.async {
                self?.tableView.reloadData()
-           }
+            }
        }
-        
+
         self.tableView.refreshControl?.endRefreshing()
     }
     
@@ -104,5 +145,36 @@ class RelatedViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 310
+    }
+    
+    //Search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        
+        APIFetch.shared.search(with: text){ [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    ArticleModel(
+                        id: $0.id,
+                        title: $0.title,
+                        summary: $0.summary ?? "Sem Descrição para mostrar",
+                        imageURL: URL(string: $0.imageUrl ?? ""),
+                        newsSite: $0.newsSite ?? "",
+                        publishedAt: $0.publishedAt ?? ""
+                    )
+                })
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

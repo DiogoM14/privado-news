@@ -52,7 +52,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func handleLogin(_ sender: Any) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
             
             if error == nil {
                 self?.navigateToMainPage()

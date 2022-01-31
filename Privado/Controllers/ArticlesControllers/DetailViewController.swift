@@ -12,11 +12,12 @@ class DetailViewController: UIViewController {
     @IBOutlet var detailTextView: UITextView!
     @IBOutlet var submitComment: UIButton!
     @IBOutlet var seeMoreComments: UIButton!
-    
 
     static let identifier = "DetailViewController"
     var article: Article?
     var image: Data? = nil
+    var likes: Int = 0
+    var dislike: Int = 0
     
     var ref: DocumentReference? = nil
     let db = Firestore.firestore()
@@ -35,9 +36,8 @@ class DetailViewController: UIViewController {
         let button = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(openQRCodeModal))
         navigationItem.rightBarButtonItem = button
         
-//        submitComment.addTarget(self, action: #selector(seeMoreComments), for: .touchUpInside)
-        
         let docId = String(article!.id)
+        let userId = Auth.auth().currentUser?.uid
         
         db.collection("likes").document(docId)
             .addSnapshotListener { documentSnapshot, error in
@@ -45,38 +45,90 @@ class DetailViewController: UIViewController {
                     print("Error fetching document: \(error!)")
                     return
                 }
-//                let source = document.metadata.hasPendingWrites ? "Local" : "Server"
-//                print(source)
+
                 self.detailLikes.text = String(describing: document.get("no_likes") ?? "0")
             }
-
+        
+        db.collection("userLikes").document(String(describing: userId!)).collection("articleId").document(docId)
+            .addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+                
+            if document.get("like") != nil {
+                self.likes = document.get("like") as! Int
+            }
+                
+            if document.get("dislike") != nil {
+                self.dislike = document.get("dislike") as! Int
+            }
+        }
 
         detailImage.image = UIImage(data: image!)
         detailTitle.text = article?.title
         detailSummary.text = article?.summary
-        detailPublishedAt.text = convertDateFormater(article?.publishedAt)
+        detailPublishedAt.text = DateConverter.convertDateFormater(article?.publishedAt)
     }
     
     @IBAction func upLikes(_ sender: Any) {
         let docId = String(article!.id)
+        let userId = Auth.auth().currentUser?.uid
         
-        db.collection("likes").document(docId).setData([
-            "no_likes": FieldValue.increment(Int64(1))
-        ], merge: true) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
+        if likes == 0 && dislike == 1 {
+            db.collection("userLikes").document(String(describing: userId!)).collection("articleId").document(docId).setData([
+                "dislike": 0,
+            ], merge: true)
+            
+            db.collection("likes").document(docId).setData([
+                "no_likes": FieldValue.increment(Int64(1))
+            ], merge: true) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                }
+            }
+        } else if likes == 0 && dislike == 0 {
+            db.collection("userLikes").document(String(describing: userId!)).collection("articleId").document(docId).setData([
+                "like": 1,
+            ], merge: true)
+            
+            db.collection("likes").document(docId).setData([
+                "no_likes": FieldValue.increment(Int64(1))
+            ], merge: true) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                }
             }
         }
     }
     
     @IBAction func downLikes(_ sender: Any) {
         let docId = String(article!.id)
+        let userId = Auth.auth().currentUser?.uid
         
-        db.collection("likes").document(docId).setData([
-            "no_likes": FieldValue.increment(Int64(-1))
-        ], merge: true) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
+        if likes == 1 && dislike == 0 {
+            db.collection("userLikes").document(String(describing: userId!)).collection("articleId").document(docId).setData([
+                "like": 0,
+            ], merge: true)
+            
+            db.collection("likes").document(docId).setData([
+                "no_likes": FieldValue.increment(Int64(-1))
+            ], merge: true) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                }
+            }
+        } else if likes == 0 && dislike == 0 {
+            db.collection("userLikes").document(String(describing: userId!)).collection("articleId").document(docId).setData([
+                "dislike": 1,
+            ], merge: true)
+            
+            db.collection("likes").document(docId).setData([
+                "no_likes": FieldValue.increment(Int64(-1))
+            ], merge: true) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                }
             }
         }
     }
@@ -89,20 +141,6 @@ class DetailViewController: UIViewController {
             "username": String(Auth.auth().currentUser?.displayName ?? ""),
             "timestamp": FieldValue.serverTimestamp()
         ])
-    }
-    
-    func convertDateFormater(_ date: String?) -> String {
-        var fixDate = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = .init(identifier: "en_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        if let originalDate = date {
-            if let newDate = dateFormatter.date(from: originalDate) {
-                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-                fixDate = dateFormatter.string(from: newDate)
-            }
-        }
-        return fixDate
     }
     
     func hideKeyboard() {
@@ -137,7 +175,6 @@ class DetailViewController: UIViewController {
         } else {
             view.frame.origin.y = 0
         }
-
     }
     
     @objc func openQRCodeModal() {

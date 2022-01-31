@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
         usernameLabel.text = Auth.auth().currentUser!.displayName
 
         var test = Auth.auth().currentUser?.photoURL
-        print(Auth.auth().currentUser?.photoURL)
         
         if test == nil {
             test = URL(string: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
