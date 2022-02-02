@@ -41,6 +41,7 @@
 		3BC4092B2793B3A300FDEC1B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC4092A2793B3A300FDEC1B /* FirebaseFirestore */; };
 		3BC4092D27945ABD00FDEC1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */; };
 		3BDA139E2770D5EA0068A25F /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */; };
+		3BE67F5127A9FDC800E10626 /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE67F5027A9FDC800E10626 /* QRCodeReaderViewController.swift */; };
 		3BFC2F1D27A44B6B002484BE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2F1C27A44B6B002484BE /* RegisterViewController.swift */; };
 		3BFC2F1F27A58DF8002484BE /* SuccessfullyRegisteredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2F1E27A58DF8002484BE /* SuccessfullyRegisteredViewController.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		3BC409232793B25D00FDEC1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BC4092C27945ABD00FDEC1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDA139D2770D5EA0068A25F /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
+		3BE67F5027A9FDC800E10626 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		3BFC2F1C27A44B6B002484BE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3BFC2F1E27A58DF8002484BE /* SuccessfullyRegisteredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyRegisteredViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 				3B74D45427A1B95D00072182 /* RecentsViewController.swift */,
 				3B74D45727A1C1FA00072182 /* QRModalViewController.swift */,
 				3B0F0DFF27A81D9800DB2C35 /* NotificationController.swift */,
+				3BE67F5027A9FDC800E10626 /* QRCodeReaderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				3B0F0DFC27A817C200DB2C35 /* DateConverter.swift in Sources */,
 				3BFC2F1F27A58DF8002484BE /* SuccessfullyRegisteredViewController.swift in Sources */,
 				3B0F6B5527A5A3980093233C /* MainBottomTabController.swift in Sources */,
+				3BE67F5127A9FDC800E10626 /* QRCodeReaderViewController.swift in Sources */,
 				3B8AEBD02768FCF100409124 /* AppDelegate.swift in Sources */,
 				3BB0EFF4276D6B8B001B4CEF /* APIFetch.swift in Sources */,
 				3B785C1827A89C56009CD0AD /* RecentsTableViewCell.swift in Sources */,

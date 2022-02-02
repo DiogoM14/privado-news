@@ -12,7 +12,7 @@ class NotificationController {
         content.body = "There are a new article. Read it now"
         
         // Set the time to trigger the notification
-        let date = Date().addingTimeInterval(10)
+        let date = Date().addingTimeInterval(5)
         
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         
