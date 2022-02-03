@@ -14,6 +14,9 @@ class RecentsViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         
         let userId = Auth.auth().currentUser?.uid
@@ -46,7 +49,7 @@ class RecentsViewController: UIViewController, UITableViewDataSource {
         
         
         if url != nil {
-            URLSession.shared.dataTask(with: url!) { [weak self] data, _, error in
+            URLSession.shared.dataTask(with: url!) { data, _, error in
                 guard let data = data, error == nil else{
                     return
                 }
@@ -58,13 +61,57 @@ class RecentsViewController: UIViewController, UITableViewDataSource {
         }
         
         cell.titleLabel.text = self.articles[indexPath.row].title
-        cell.publishedAtLabel.text = self.articles[indexPath.row].publishedAt
+        cell.publishedAtLabel.text = DateConverter.convertDateFormater(self.articles[indexPath.row].publishedAt)
         cell.source.text = self.articles[indexPath.row].newsSite
        
        return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("click")
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        else {
+            return
+        }
+        
+        let url = URL(string: self.articles[indexPath.row].imageUrl!)
+        
+        
+        if url != nil {
+            URLSession.shared.dataTask(with: url!) { data, _, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    vc.image = data
+                }
+            }.resume()
+        }
+        
+        vc.article = self.articles[indexPath.row]
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+        let userId = Auth.auth().currentUser?.uid
+        
+        db.collection("userLikes").document(String(describing: userId!)).collection("articleId").getDocuments() { (querySnapshot, err) in
+            for document in querySnapshot!.documents {
+                self.articlesLiked.append(Int(document.documentID)!)
+                
+                APIFetch.shared.getArticleById(with: String(describing: document.documentID)) { [weak self] articles in
+                    self?.articles.append(articles)
+                    
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+               }
+            }
+        }
+        
+        self.tableView.refreshControl?.endRefreshing()
     }
 }

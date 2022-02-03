@@ -1,9 +1,8 @@
 import Foundation
 import UIKit
+import Firebase
 
 class SuccessfullyRegisteredViewController: UIViewController {
-    @IBOutlet weak var registerBtn: UIButton!
-    
     static let identifier = "SuccessfullyRegisteredViewController"
     
     override func viewDidLoad() {

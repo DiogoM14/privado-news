@@ -2,10 +2,6 @@ import UIKit
 import AVFoundation
 
 class QrCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
-//    @IBOutlet weak var squareImageView: UIImageView!
-    static let identifier = "QrCodeScannerViewController"
-    
     let session = AVCaptureSession()
     var previewLayer = AVCaptureVideoPreviewLayer()
 
@@ -16,8 +12,8 @@ class QrCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         do{
             let input = try AVCaptureDeviceInput(device: captureDevice!)
             session.addInput(input)
-        }catch{
-            print("Erro scanner QR")
+        } catch {
+            print("Error with qrcode reader")
         }
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)

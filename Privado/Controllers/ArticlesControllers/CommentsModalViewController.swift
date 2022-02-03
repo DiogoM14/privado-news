@@ -17,7 +17,7 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         
-        db.collection("comments").document(docId).collection("comment").getDocuments() {
+        db.collection("comments").document(docId).collection("comment").order(by: "timestamp", descending: false).getDocuments() {
             (querySnapshot, err) in
             if err != nil {
                     print("Error getting documents: (err)")
@@ -63,9 +63,5 @@ class CommentsModalViewController: UIViewController, UITableViewDataSource {
         cell.timestampLabel.text = self.tableViewData[indexPath.row].timestamp
        
        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
 }
