@@ -96,6 +96,8 @@ class RecentsViewController: UIViewController, UITableViewDataSource {
     }
     
     @objc func handleRefreshControl(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+        articles.removeAll()
+        
         let userId = Auth.auth().currentUser?.uid
         
         db.collection("userLikes").document(String(describing: userId!)).collection("articleId").getDocuments() { (querySnapshot, err) in
