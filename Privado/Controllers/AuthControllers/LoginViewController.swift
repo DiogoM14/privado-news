@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         let borderColor : UIColor = UIColor(red: 0.33, green: 0.50, blue: 2.47, alpha: 1.0)
         registerBtn.layer.borderWidth = 2
         registerBtn.layer.borderColor = borderColor.cgColor

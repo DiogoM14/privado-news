@@ -9,7 +9,7 @@ class QrCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         super.viewDidLoad()
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
-        do{
+        do {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
             session.addInput(input)
         } catch {
@@ -24,11 +24,7 @@ class QrCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         
         previewLayer.frame = view.layer.bounds
         view.layer.addSublayer(previewLayer)
-        
-//        squareImageView.layer.borderWidth = 4
-//        squareImageView.layer.borderColor = UIColor.green.cgColor
-//        
-//        self.view.bringSubviewToFront(squareImageView)
+
         session.startRunning()
     }
     

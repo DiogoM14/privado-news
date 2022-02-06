@@ -11,12 +11,15 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         return table
     }()
     
+    static let identifier = "ArticlesViewController"
+    
     private let searchVC = UISearchController(searchResultsController: nil)
     private var viewModels = [ArticleModel]()
     private var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         title = "Home"
         
@@ -50,6 +53,10 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
        }
         
         createSearchBar()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewDidLoad()
     }
     
     private func createSearchBar(){

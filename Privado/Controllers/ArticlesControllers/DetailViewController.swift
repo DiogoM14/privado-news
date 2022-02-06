@@ -25,8 +25,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        registerForKeyboardNotifications()
-        hideKeyboard()
+        
+        self.hideKeyboardWhenTappedAround()
         
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         detailTextView.layer.borderWidth = 0.5
@@ -141,40 +141,6 @@ class DetailViewController: UIViewController {
             "username": String(Auth.auth().currentUser?.displayName ?? ""),
             "timestamp": FieldValue.serverTimestamp()
         ])
-    }
-    
-    func hideKeyboard() {
-        self.detailImage.resignFirstResponder()
-        self.detailTitle.resignFirstResponder()
-        self.detailSummary.resignFirstResponder()
-        self.detailPublishedAt.resignFirstResponder()
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        hideKeyboard()
-    }
-    
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillHideNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillChange(_:)),name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-     }
-
-
-    @objc func keyboardWillChange(_ notification: NSNotification) {
-        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
-            return
-        }
-
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-        notification.name == UIResponder.keyboardWillChangeFrameNotification {
-
-            view.frame.origin.y = -keyboardRect.height
-        } else {
-            view.frame.origin.y = 0
-        }
     }
     
     @IBAction func openQRCodeModal(_ sender: Any) {

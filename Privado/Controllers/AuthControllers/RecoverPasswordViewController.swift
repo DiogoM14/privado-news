@@ -7,6 +7,8 @@ class RecoverPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func handleRecoverPassword(_ sender: Any) {
